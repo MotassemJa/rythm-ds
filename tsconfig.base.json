@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "paths": {
+      "@rythm-ds/tokens": ["packages/tokens/src/index.ts"],
+      "@rythm-ds/core": ["packages/core/src/index.ts"],
+      "@rythm-ds/react": ["packages/react/src/index.ts"],
+      "@rythm-ds/vue": ["packages/vue/src/index.ts"],
+      "@rythm-ds/angular": ["packages/angular/src/public-api.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
