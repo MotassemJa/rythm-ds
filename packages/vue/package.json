@@ -1,0 +1,22 @@
+{
+  "name": "@rythm-ds/vue",
+  "version": "0.0.1",
+  "description": "Rythm Design System — Vue 3 wrapper",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "files": ["src", "dist"],
+  "scripts": {
+    "build": "tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "@rythm-ds/core": "^0.0.1"
+  },
+  "peerDependencies": {
+    "vue": ">=3.4.0"
+  },
+  "devDependencies": {
+    "@stencil/vue-output-target": "^0.8.8",
+    "typescript": "^5.5.0",
+    "vue": "^3.4.0"
+  }
+}

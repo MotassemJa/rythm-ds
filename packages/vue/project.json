@@ -1,0 +1,18 @@
+{
+  "name": "@rythm-ds/vue",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "root": "packages/vue",
+  "sourceRoot": "packages/vue/src",
+  "tags": ["scope:vue", "type:lib"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["@rythm-ds/core:build"],
+      "options": {
+        "command": "npm run build",
+        "cwd": "packages/vue"
+      }
+    }
+  }
+}

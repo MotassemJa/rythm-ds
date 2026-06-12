@@ -1,0 +1,25 @@
+{
+  "name": "@rythm-ds/react",
+  "version": "0.0.1",
+  "description": "Rythm Design System — React wrapper",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "files": ["src", "dist"],
+  "scripts": {
+    "build": "tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "@rythm-ds/core": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@stencil/react-output-target": "^0.5.3",
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0",
+    "typescript": "^5.5.0"
+  }
+}
