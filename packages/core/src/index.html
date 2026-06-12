@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rythm DS — Component Playground</title>
+  <link rel="stylesheet" href="/tokens.css" />
+  <script type="module" src="/build/rythm.esm.js"></script>
+  <script nomodule src="/build/rythm.js"></script>
+  <style>
+    /* ── Reset ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ───────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--rythm-font-sans);
+      font-size: var(--step-0);
+      line-height: var(--rythm-leading-normal);
+      background: var(--rythm-color-surface-subtle);
+      color: var(--rythm-color-text-primary);
+      min-height: 100dvh;
+      transition: background var(--rythm-duration-normal), color var(--rythm-duration-normal);
+    }
+
+    /* ── Layout ─────────────────────────────────────────── */
+    .layout {
+      display: grid;
+      grid-template-columns: 14rem 1fr;
+      grid-template-rows: auto 1fr;
+      min-height: 100dvh;
+    }
+
+    /* ── Top bar ─────────────────────────────────────────── */
+    .topbar {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-m);
+      padding: 0 var(--space-l);
+      height: 3.5rem;
+      background: var(--rythm-color-surface-default);
+      border-bottom: 1px solid var(--rythm-color-border-default);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-weight: var(--rythm-font-weight-bold);
+      font-size: var(--step-0);
+      color: var(--rythm-color-text-primary);
+      text-decoration: none;
+    }
+
+    .topbar__brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--rythm-color-primary);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .topbar__controls {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: var(--space-m);
+    }
+
+    .topbar__version {
+      font-size: var(--step--2);
+      color: var(--rythm-color-text-tertiary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Sidebar nav ─────────────────────────────────────── */
+    .sidebar {
+      padding: var(--space-m) var(--space-s);
+      border-right: 1px solid var(--rythm-color-border-default);
+      background: var(--rythm-color-surface-default);
+      position: sticky;
+      top: 3.5rem;
+      height: calc(100dvh - 3.5rem);
+      overflow-y: auto;
+    }
+
+    .nav-section {
+      margin-bottom: var(--space-m);
+    }
+
+    .nav-label {
+      font-size: var(--step--2);
+      font-weight: var(--rythm-font-weight-semibold);
+      color: var(--rythm-color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: var(--space-2xs) var(--space-xs);
+      margin-bottom: var(--space-3xs);
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-2xs) var(--space-xs);
+      border-radius: var(--rythm-radius-sm);
+      font-size: var(--step--1);
+      color: var(--rythm-color-text-secondary);
+      text-decoration: none;
+      transition: background var(--rythm-duration-fast), color var(--rythm-duration-fast);
+    }
+
+    .nav-link:hover {
+      background: var(--rythm-color-surface-subtle);
+      color: var(--rythm-color-text-primary);
+    }
+
+    /* ── Main content ────────────────────────────────────── */
+    .main {
+      padding: var(--space-l) var(--space-xl);
+      max-width: 1080px;
+    }
+
+    /* ── Section ─────────────────────────────────────────── */
+    .section {
+      margin-bottom: var(--space-3xl);
+      scroll-margin-top: calc(3.5rem + var(--space-m));
+    }
+
+    .section__head {
+      margin-bottom: var(--space-l);
+      padding-bottom: var(--space-s);
+      border-bottom: 1px solid var(--rythm-color-border-default);
+    }
+
+    .section__title {
+      font-size: var(--step-2);
+      font-weight: var(--rythm-font-weight-bold);
+      line-height: var(--rythm-leading-tight);
+      color: var(--rythm-color-text-primary);
+    }
+
+    .section__sub {
+      margin-top: var(--space-3xs);
+      font-size: var(--step--1);
+      color: var(--rythm-color-text-tertiary);
+      font-family: var(--rythm-font-mono);
+    }
+
+    /* ── Demo card ───────────────────────────────────────── */
+    .card {
+      background: var(--rythm-color-surface-default);
+      border: 1px solid var(--rythm-color-border-default);
+      border-radius: var(--rythm-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--rythm-shadow-sm);
+    }
+
+    .card__label {
+      padding: var(--space-xs) var(--space-m);
+      background: var(--rythm-color-surface-subtle);
+      border-bottom: 1px solid var(--rythm-color-border-default);
+      font-size: var(--step--2);
+      font-weight: var(--rythm-font-weight-medium);
+      color: var(--rythm-color-text-tertiary);
+      font-family: var(--rythm-font-mono);
+    }
+
+    .card__body {
+      padding: var(--space-m);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: var(--space-m);
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+
+    /* ── Row / Stack ─────────────────────────────────────── */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-s);
+    }
+
+    .row + .row { margin-top: var(--space-s); }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-s);
+    }
+
+    /* ── Typography showcase ──────────────────────────────── */
+    .type-scale {
+      display: grid;
+      gap: 0;
+    }
+
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-m);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--rythm-color-border-default);
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      font-family: var(--rythm-font-mono);
+      font-size: var(--step--2);
+      color: var(--rythm-color-text-tertiary);
+      min-width: 3.5rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Color palette ───────────────────────────────────── */
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      border-radius: var(--rythm-radius-md);
+      overflow: hidden;
+    }
+
+    .swatch {
+      aspect-ratio: 1;
+    }
+
+    /* ── Icon grid ───────────────────────────────────────── */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+      gap: var(--space-2xs);
+    }
+
+    .icon-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3xs);
+      padding: var(--space-xs) var(--space-2xs);
+      border-radius: var(--rythm-radius-sm);
+      cursor: default;
+      transition: background var(--rythm-duration-fast);
+    }
+
+    .icon-cell:hover { background: var(--rythm-color-surface-subtle); }
+
+    .icon-name {
+      font-size: 0.6rem;
+      font-family: var(--rythm-font-mono);
+      color: var(--rythm-color-text-tertiary);
+      text-align: center;
+      line-height: 1.3;
+      word-break: break-all;
+    }
+
+    /* ── Form group ──────────────────────────────────────── */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-s);
+      max-width: 22rem;
+    }
+
+    /* ── Divider demo ─────────────────────────────────────── */
+    .divider-inline {
+      display: flex;
+      align-items: center;
+      gap: var(--space-m);
+      height: 3rem;
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ════════════════════ TOP BAR ════════════════════ -->
+  <header class="topbar">
+    <a class="topbar__brand" href="#">
+      <div class="topbar__brand-dot"></div>
+      Rythm DS
+    </a>
+    <span class="topbar__version">v0.0.1 · Atoms</span>
+
+    <div class="topbar__controls">
+      <rythm-toggle id="sound-toggle" label="Sound" label-position="start" no-sound></rythm-toggle>
+      <rythm-toggle id="theme-toggle" label="Dark"  label-position="start" no-sound></rythm-toggle>
+    </div>
+  </header>
+
+  <!-- ════════════════════ SIDEBAR ════════════════════ -->
+  <nav class="sidebar" aria-label="Components">
+    <div class="nav-section">
+      <div class="nav-label">Foundation</div>
+      <a class="nav-link" href="#typography">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Typography
+      </a>
+      <a class="nav-link" href="#colors">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Colors
+      </a>
+      <a class="nav-link" href="#icons">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Icons
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Display</div>
+      <a class="nav-link" href="#badge">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Badge
+      </a>
+      <a class="nav-link" href="#tag">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Tag
+      </a>
+      <a class="nav-link" href="#avatar">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Avatar
+      </a>
+      <a class="nav-link" href="#spinner">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Spinner
+      </a>
+      <a class="nav-link" href="#divider">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Divider
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Actions</div>
+      <a class="nav-link" href="#button">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Button
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Forms</div>
+      <a class="nav-link" href="#checkbox">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Checkbox
+      </a>
+      <a class="nav-link" href="#toggle">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Toggle
+      </a>
+      <a class="nav-link" href="#radio">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Radio Group
+      </a>
+      <a class="nav-link" href="#input">
+        <rythm-icon name="minus" size="xs"></rythm-icon> Input
+      </a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════ MAIN ════════════════════ -->
+  <main class="main">
+
+    <!-- ── Typography ──────────────────────────────── -->
+    <section id="typography" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Typography</h2>
+        <p class="section__sub">rythm-text — Utopia fluid type scale, step--2 → step-5</p>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Type scale</div>
+        <div class="card__body">
+          <div class="type-scale">
+            <div class="type-row">
+              <span class="type-meta">3xl</span>
+              <rythm-text size="3xl" weight="bold">Design systems at scale</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">2xl</span>
+              <rythm-text size="2xl" weight="bold">Design systems at scale</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">xl</span>
+              <rythm-text size="xl" weight="semibold">Design systems at scale</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">lg</span>
+              <rythm-text size="lg">The quick brown fox jumps over the lazy dog</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">md</span>
+              <rythm-text size="md">The quick brown fox jumps over the lazy dog</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">base</span>
+              <rythm-text size="base">The quick brown fox jumps over the lazy dog</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">sm</span>
+              <rythm-text size="sm">The quick brown fox jumps over the lazy dog</rythm-text>
+            </div>
+            <div class="type-row">
+              <span class="type-meta">xs</span>
+              <rythm-text size="xs">The quick brown fox jumps over the lazy dog</rythm-text>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card__label">Weights</div>
+          <div class="card__body col">
+            <rythm-text weight="regular">Regular 400</rythm-text>
+            <rythm-text weight="medium">Medium 500</rythm-text>
+            <rythm-text weight="semibold">Semibold 600</rythm-text>
+            <rythm-text weight="bold">Bold 700</rythm-text>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Colors</div>
+          <div class="card__body col">
+            <rythm-text color="primary">Primary text</rythm-text>
+            <rythm-text color="secondary">Secondary text</rythm-text>
+            <rythm-text color="tertiary">Tertiary text</rythm-text>
+            <rythm-text color="success">Success text</rythm-text>
+            <rythm-text color="warning">Warning text</rythm-text>
+            <rythm-text color="danger">Danger text</rythm-text>
+            <rythm-text color="disabled">Disabled text</rythm-text>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Truncate</div>
+          <div class="card__body" style="width: 100%; overflow: hidden;">
+            <rythm-text truncate style="display: block">
+              This text is very long and will be truncated with an ellipsis when it overflows its container boundary.
+            </rythm-text>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Colors ──────────────────────────────────── -->
+    <section id="colors" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Colors</h2>
+        <p class="section__sub">OKLCH tonal scales via CSS Relative Colors — derived at runtime</p>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Primary (steel-blue)</div>
+        <div class="palette">
+          <div class="swatch" style="background: var(--rythm-color-primary-50)"  title="50"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-100)" title="100"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-200)" title="200"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-300)" title="300"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-400)" title="400"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-500)" title="500"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-600)" title="600"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-700)" title="700"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-800)" title="800"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-900)" title="900"></div>
+          <div class="swatch" style="background: var(--rythm-color-primary-950)" title="950"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Secondary (coral-red)</div>
+        <div class="palette">
+          <div class="swatch" style="background: var(--rythm-color-secondary-50)"  title="50"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-100)" title="100"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-200)" title="200"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-300)" title="300"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-400)" title="400"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-500)" title="500"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-600)" title="600"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-700)" title="700"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-800)" title="800"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-900)" title="900"></div>
+          <div class="swatch" style="background: var(--rythm-color-secondary-950)" title="950"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Neutral (hue-tinted from primary)</div>
+        <div class="palette">
+          <div class="swatch" style="background: var(--rythm-color-neutral-50)"  title="50"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-100)" title="100"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-200)" title="200"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-300)" title="300"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-400)" title="400"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-500)" title="500"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-600)" title="600"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-700)" title="700"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-800)" title="800"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-900)" title="900"></div>
+          <div class="swatch" style="background: var(--rythm-color-neutral-950)" title="950"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__label">Feedback</div>
+        <div class="card__body row">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-success)"></div>
+            <rythm-text size="xs" color="tertiary">success</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-warning)"></div>
+            <rythm-text size="xs" color="tertiary">warning</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-error)"></div>
+            <rythm-text size="xs" color="tertiary">error</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-info)"></div>
+            <rythm-text size="xs" color="tertiary">info</rythm-text>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Icons ───────────────────────────────────── -->
+    <section id="icons" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Icons</h2>
+        <p class="section__sub">rythm-icon — 24 Lucide icons · 5 sizes (xs → xl)</p>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">All icons</div>
+        <div class="card__body">
+          <div class="icon-grid">
+            <div class="icon-cell"><rythm-icon name="check" size="md"></rythm-icon><span class="icon-name">check</span></div>
+            <div class="icon-cell"><rythm-icon name="x" size="md"></rythm-icon><span class="icon-name">x</span></div>
+            <div class="icon-cell"><rythm-icon name="plus" size="md"></rythm-icon><span class="icon-name">plus</span></div>
+            <div class="icon-cell"><rythm-icon name="minus" size="md"></rythm-icon><span class="icon-name">minus</span></div>
+            <div class="icon-cell"><rythm-icon name="eye" size="md"></rythm-icon><span class="icon-name">eye</span></div>
+            <div class="icon-cell"><rythm-icon name="eye-off" size="md"></rythm-icon><span class="icon-name">eye-off</span></div>
+            <div class="icon-cell"><rythm-icon name="search" size="md"></rythm-icon><span class="icon-name">search</span></div>
+            <div class="icon-cell"><rythm-icon name="user" size="md"></rythm-icon><span class="icon-name">user</span></div>
+            <div class="icon-cell"><rythm-icon name="settings" size="md"></rythm-icon><span class="icon-name">settings</span></div>
+            <div class="icon-cell"><rythm-icon name="mail" size="md"></rythm-icon><span class="icon-name">mail</span></div>
+            <div class="icon-cell"><rythm-icon name="image" size="md"></rythm-icon><span class="icon-name">image</span></div>
+            <div class="icon-cell"><rythm-icon name="star" size="md"></rythm-icon><span class="icon-name">star</span></div>
+            <div class="icon-cell"><rythm-icon name="heart" size="md"></rythm-icon><span class="icon-name">heart</span></div>
+            <div class="icon-cell"><rythm-icon name="loader" size="md"></rythm-icon><span class="icon-name">loader</span></div>
+            <div class="icon-cell"><rythm-icon name="arrow-left" size="md"></rythm-icon><span class="icon-name">arrow-left</span></div>
+            <div class="icon-cell"><rythm-icon name="arrow-right" size="md"></rythm-icon><span class="icon-name">arrow-right</span></div>
+            <div class="icon-cell"><rythm-icon name="chevron-up" size="md"></rythm-icon><span class="icon-name">chevron-up</span></div>
+            <div class="icon-cell"><rythm-icon name="chevron-down" size="md"></rythm-icon><span class="icon-name">chevron-down</span></div>
+            <div class="icon-cell"><rythm-icon name="chevron-left" size="md"></rythm-icon><span class="icon-name">chevron-left</span></div>
+            <div class="icon-cell"><rythm-icon name="chevron-right" size="md"></rythm-icon><span class="icon-name">chevron-right</span></div>
+            <div class="icon-cell"><rythm-icon name="alert-circle" size="md"></rythm-icon><span class="icon-name">alert-circle</span></div>
+            <div class="icon-cell"><rythm-icon name="check-circle" size="md"></rythm-icon><span class="icon-name">check-circle</span></div>
+            <div class="icon-cell"><rythm-icon name="x-circle" size="md"></rythm-icon><span class="icon-name">x-circle</span></div>
+            <div class="icon-cell"><rythm-icon name="alert-triangle" size="md"></rythm-icon><span class="icon-name">alert-triangle</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__label">Sizes</div>
+        <div class="card__body row" style="align-items: flex-end; gap: var(--space-l)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-icon name="star" size="xs"></rythm-icon>
+            <rythm-text size="xs" color="tertiary">xs</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-icon name="star" size="sm"></rythm-icon>
+            <rythm-text size="xs" color="tertiary">sm</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-icon name="star" size="md"></rythm-icon>
+            <rythm-text size="xs" color="tertiary">md</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-icon name="star" size="lg"></rythm-icon>
+            <rythm-text size="xs" color="tertiary">lg</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-icon name="star" size="xl"></rythm-icon>
+            <rythm-text size="xs" color="tertiary">xl</rythm-text>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Badge ───────────────────────────────────── -->
+    <section id="badge" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Badge</h2>
+        <p class="section__sub">rythm-badge — 6 colors · dot mode · sm/md sizes</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card__label">Colors</div>
+          <div class="card__body row">
+            <rythm-badge color="primary">Primary</rythm-badge>
+            <rythm-badge color="secondary">Secondary</rythm-badge>
+            <rythm-badge color="success">Success</rythm-badge>
+            <rythm-badge color="warning">Warning</rythm-badge>
+            <rythm-badge color="danger">Danger</rythm-badge>
+            <rythm-badge color="neutral">Neutral</rythm-badge>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Dot mode</div>
+          <div class="card__body row" style="align-items: center">
+            <rythm-badge color="primary" dot></rythm-badge>
+            <rythm-badge color="secondary" dot></rythm-badge>
+            <rythm-badge color="success" dot></rythm-badge>
+            <rythm-badge color="warning" dot></rythm-badge>
+            <rythm-badge color="danger" dot></rythm-badge>
+            <rythm-badge color="neutral" dot></rythm-badge>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Sizes</div>
+          <div class="card__body row" style="align-items: center">
+            <rythm-badge size="sm" color="primary">Small</rythm-badge>
+            <rythm-badge size="md" color="primary">Medium</rythm-badge>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Tag ─────────────────────────────────────── -->
+    <section id="tag" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Tag</h2>
+        <p class="section__sub">rythm-tag — 6 colors · dismissible with rythmDismiss event</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card__label">Colors</div>
+          <div class="card__body row">
+            <rythm-tag color="primary">Primary</rythm-tag>
+            <rythm-tag color="secondary">Secondary</rythm-tag>
+            <rythm-tag color="success">Success</rythm-tag>
+            <rythm-tag color="warning">Warning</rythm-tag>
+            <rythm-tag color="danger">Danger</rythm-tag>
+            <rythm-tag color="neutral">Neutral</rythm-tag>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Dismissible (click × to remove)</div>
+          <div class="card__body row" id="tag-demo">
+            <rythm-tag color="primary" dismissible>Design</rythm-tag>
+            <rythm-tag color="secondary" dismissible>System</rythm-tag>
+            <rythm-tag color="success" dismissible>Accessible</rythm-tag>
+            <rythm-tag color="warning" dismissible>WCAG 2.2</rythm-tag>
+            <rythm-tag color="danger" dismissible>v0.0.1</rythm-tag>
+            <rythm-tag color="neutral" dismissible>StencilJS</rythm-tag>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Avatar ──────────────────────────────────── -->
+    <section id="avatar" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Avatar</h2>
+        <p class="section__sub">rythm-avatar — image → initials → icon fallback chain · circle/square</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card__label">Sizes (initials)</div>
+          <div class="card__body row" style="align-items: flex-end">
+            <rythm-avatar initials="XS" size="xs"></rythm-avatar>
+            <rythm-avatar initials="SM" size="sm"></rythm-avatar>
+            <rythm-avatar initials="MD" size="md"></rythm-avatar>
+            <rythm-avatar initials="LG" size="lg"></rythm-avatar>
+            <rythm-avatar initials="XL" size="xl"></rythm-avatar>
+            <rythm-avatar initials="2X" size="2xl"></rythm-avatar>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Fallback chain & shapes</div>
+          <div class="card__body row" style="align-items: center">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+              <rythm-avatar src="https://i.pravatar.cc/150?img=7" alt="User" size="lg"></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">image</rythm-text>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+              <rythm-avatar src="broken.jpg" initials="MJ" alt="Motassem" size="lg"></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">initials</rythm-text>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+              <rythm-avatar icon="user" size="lg"></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">icon</rythm-text>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+              <rythm-avatar initials="SQ" size="lg" shape="square"></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">square</rythm-text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Spinner ─────────────────────────────────── -->
+    <section id="spinner" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Spinner</h2>
+        <p class="section__sub">rythm-spinner — SVG arc animation · role="status" · 5 sizes</p>
+      </div>
+
+      <div class="card">
+        <div class="card__label">All sizes</div>
+        <div class="card__body row" style="align-items: flex-end; gap: var(--space-l)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-spinner size="xs"></rythm-spinner>
+            <rythm-text size="xs" color="tertiary">xs</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-spinner size="sm"></rythm-spinner>
+            <rythm-text size="xs" color="tertiary">sm</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-spinner size="md"></rythm-spinner>
+            <rythm-text size="xs" color="tertiary">md</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-spinner size="lg"></rythm-spinner>
+            <rythm-text size="xs" color="tertiary">lg</rythm-text>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+            <rythm-spinner size="xl"></rythm-spinner>
+            <rythm-text size="xs" color="tertiary">xl</rythm-text>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Divider ─────────────────────────────────── -->
+    <section id="divider" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Divider</h2>
+        <p class="section__sub">rythm-divider — horizontal · vertical · optional label</p>
+      </div>
+
+      <div class="card col">
+        <div>
+          <div class="card__label">Horizontal (default)</div>
+          <div class="card__body"><rythm-divider></rythm-divider></div>
+        </div>
+        <div>
+          <div class="card__label">Labeled</div>
+          <div class="card__body"><rythm-divider label="or continue with email"></rythm-divider></div>
+        </div>
+        <div>
+          <div class="card__label">Vertical</div>
+          <div class="card__body">
+            <div class="divider-inline">
+              <rythm-text>Left</rythm-text>
+              <rythm-divider orientation="vertical"></rythm-divider>
+              <rythm-text>Center</rythm-text>
+              <rythm-divider orientation="vertical"></rythm-divider>
+              <rythm-text>Right</rythm-text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Button ──────────────────────────────────── -->
+    <section id="button" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Button</h2>
+        <p class="section__sub">rythm-button — 4 variants · 6 colors · 5 sizes · icons · loading · link mode</p>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Variants × Primary color</div>
+        <div class="card__body row">
+          <rythm-button variant="solid"   color="primary">Solid</rythm-button>
+          <rythm-button variant="outline" color="primary">Outline</rythm-button>
+          <rythm-button variant="ghost"   color="primary">Ghost</rythm-button>
+          <rythm-button variant="link"    color="primary">Link</rythm-button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Colors × Solid variant</div>
+        <div class="card__body row">
+          <rythm-button color="primary">Primary</rythm-button>
+          <rythm-button color="secondary">Secondary</rythm-button>
+          <rythm-button color="success">Success</rythm-button>
+          <rythm-button color="warning">Warning</rythm-button>
+          <rythm-button color="danger">Danger</rythm-button>
+          <rythm-button color="neutral">Neutral</rythm-button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Colors × Outline variant</div>
+        <div class="card__body row">
+          <rythm-button variant="outline" color="primary">Primary</rythm-button>
+          <rythm-button variant="outline" color="secondary">Secondary</rythm-button>
+          <rythm-button variant="outline" color="success">Success</rythm-button>
+          <rythm-button variant="outline" color="warning">Warning</rythm-button>
+          <rythm-button variant="outline" color="danger">Danger</rythm-button>
+          <rythm-button variant="outline" color="neutral">Neutral</rythm-button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-m)">
+        <div class="card__label">Sizes</div>
+        <div class="card__body row" style="align-items: center">
+          <rythm-button size="xs">XSmall</rythm-button>
+          <rythm-button size="sm">Small</rythm-button>
+          <rythm-button size="md">Medium</rythm-button>
+          <rythm-button size="lg">Large</rythm-button>
+          <rythm-button size="xl">XLarge</rythm-button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__label">States, icons & link mode</div>
+        <div class="card__body row" style="align-items: center">
+          <rythm-button icon-start="star">Icon start</rythm-button>
+          <rythm-button icon-end="arrow-right">Icon end</rythm-button>
+          <rythm-button icon-start="heart" icon-end="arrow-right">Both</rythm-button>
+          <rythm-button loading>Loading…</rythm-button>
+          <rythm-button disabled>Disabled</rythm-button>
+          <rythm-button icon-only icon-start="heart" aria-label="Like" color="danger"></rythm-button>
+          <rythm-button icon-only icon-start="star"  aria-label="Save" variant="outline"></rythm-button>
+          <rythm-button href="#button" variant="link" icon-end="arrow-right">Anchor link</rythm-button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Checkbox ────────────────────────────────── -->
+    <section id="checkbox" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Checkbox</h2>
+        <p class="section__sub">rythm-checkbox — indeterminate state · rythmChange event · sound feedback</p>
+      </div>
+
+      <div class="card">
+        <div class="card__body row" style="align-items: flex-start; flex-wrap: wrap; gap: var(--space-l)">
+          <div class="col">
+            <rythm-checkbox label="Unchecked (default)"></rythm-checkbox>
+            <rythm-checkbox label="Checked" checked></rythm-checkbox>
+            <rythm-checkbox label="Indeterminate" indeterminate></rythm-checkbox>
+            <rythm-checkbox label="Disabled unchecked" disabled></rythm-checkbox>
+            <rythm-checkbox label="Disabled checked" checked disabled></rythm-checkbox>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Toggle ──────────────────────────────────── -->
+    <section id="toggle" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Toggle</h2>
+        <p class="section__sub">rythm-toggle — role="switch" · label-position start/end · sound feedback</p>
+      </div>
+
+      <div class="card">
+        <div class="card__body row" style="flex-wrap: wrap; gap: var(--space-l); align-items: flex-start">
+          <div class="col">
+            <rythm-toggle label="Off (default)"></rythm-toggle>
+            <rythm-toggle label="On" checked></rythm-toggle>
+            <rythm-toggle label="Label at start" label-position="start"></rythm-toggle>
+            <rythm-toggle label="Disabled off" disabled></rythm-toggle>
+            <rythm-toggle label="Disabled on" checked disabled></rythm-toggle>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Radio ───────────────────────────────────── -->
+    <section id="radio" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Radio Group</h2>
+        <p class="section__sub">rythm-radio-group + rythm-radio — managed selection · vertical/horizontal</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card__label">Vertical (default)</div>
+          <div class="card__body">
+            <rythm-radio-group name="plan" label="Choose a plan" value="pro">
+              <rythm-radio label="Free tier" value="free"></rythm-radio>
+              <rythm-radio label="Pro — $12/mo" value="pro"></rythm-radio>
+              <rythm-radio label="Enterprise" value="enterprise"></rythm-radio>
+              <rythm-radio label="Unavailable" value="none" disabled></rythm-radio>
+            </rythm-radio-group>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Horizontal orientation</div>
+          <div class="card__body">
+            <rythm-radio-group name="size" label="Size" value="m" orientation="horizontal">
+              <rythm-radio label="XS" value="xs"></rythm-radio>
+              <rythm-radio label="S" value="s"></rythm-radio>
+              <rythm-radio label="M" value="m"></rythm-radio>
+              <rythm-radio label="L" value="l"></rythm-radio>
+              <rythm-radio label="XL" value="xl"></rythm-radio>
+            </rythm-radio-group>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Disabled group</div>
+          <div class="card__body">
+            <rythm-radio-group name="locked" label="Locked plan" value="pro" disabled>
+              <rythm-radio label="Free" value="free"></rythm-radio>
+              <rythm-radio label="Pro" value="pro"></rythm-radio>
+            </rythm-radio-group>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Input ───────────────────────────────────── -->
+    <section id="input" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Input</h2>
+        <p class="section__sub">rythm-input — label · hint · error · icons · password toggle · clearable</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card__label">Basic variants</div>
+          <div class="card__body form-group">
+            <rythm-input label="Default" placeholder="Placeholder text…"></rythm-input>
+            <rythm-input label="With hint" hint="We'll never share your email" placeholder="you@example.com" type="email"></rythm-input>
+            <rythm-input label="Required" required placeholder="Required field…"></rythm-input>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__label">Icons & clearable</div>
+          <div class="card__body form-group">
+            <rythm-input label="Icon start" icon-start="search" placeholder="Search…"></rythm-input>
+            <rythm-input label="Icon end" icon-end="mail" placeholder="Email address"></rythm-input>
+            <rythm-input label="Clearable" clearable icon-start="user" value="John Doe"></rythm-input>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__label">States</div>
+          <div class="card__body form-group">
+            <rythm-input label="With error" error="This field is required" value="invalid-value"></rythm-input>
+            <rythm-input label="Disabled" disabled value="Cannot edit this"></rythm-input>
+            <rythm-input label="Read-only" readonly value="Read-only value"></rythm-input>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__label">Password & sizes</div>
+          <div class="card__body form-group">
+            <rythm-input label="Password (show/hide toggle)" type="password" value="supersecret123"></rythm-input>
+            <rythm-input label="Small" size="sm" placeholder="Small input…"></rythm-input>
+            <rythm-input label="Medium (default)" size="md" placeholder="Medium input…"></rythm-input>
+            <rythm-input label="Large" size="lg" placeholder="Large input…"></rythm-input>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Dark mode toggle
+  document.getElementById('theme-toggle').addEventListener('rythmChange', (e) => {
+    document.documentElement.setAttribute('data-theme', e.detail ? 'dark' : 'light');
+  });
+
+  // Sound toggle
+  document.getElementById('sound-toggle').addEventListener('rythmChange', (e) => {
+    document.documentElement.setAttribute('data-rythm-sounds', e.detail ? 'on' : 'off');
+  });
+
+  // Dismissible tags
+  document.getElementById('tag-demo').addEventListener('rythmDismiss', (e) => {
+    e.target.remove();
+  });
+</script>
+</body>
+</html>

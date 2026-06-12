@@ -7,6 +7,13 @@ export const config: Config = {
   namespace: 'rythm',
   outputTargets: [
     {
+      type: 'www',
+      serviceWorker: null,
+      copy: [
+        { src: '../../tokens/dist/tokens.css', dest: 'tokens.css' },
+      ],
+    },
+    {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
