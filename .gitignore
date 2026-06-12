@@ -38,3 +38,6 @@ yarn-error.log*
 # Editor
 .vscode/settings.json
 .idea/
+
+# Claude Code internal memory (not project source)
+.claude/
