@@ -1,0 +1,29 @@
+:host { display: block; }
+
+.radio-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radio-group__legend {
+  font-family: var(--rythm-font-sans);
+  font-size: var(--rythm-font-size-sm);
+  font-weight: var(--rythm-font-weight-semibold);
+  color: var(--rythm-color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.radio-group__options {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.radio-group--vertical .radio-group__options {
+  flex-direction: column;
+}
+
+.radio-group--horizontal .radio-group__options {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
