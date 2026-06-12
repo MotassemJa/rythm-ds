@@ -3,25 +3,39 @@ import { playSound } from '../../../sounds';
 
 let toggleIdCounter = 0;
 
+/**
+ * Accessible toggle switch using a checkbox with `role="switch"`.
+ */
 @Component({
   tag: 'rythm-toggle',
   styleUrl: 'rythm-toggle.css',
   shadow: true,
 })
-export class RythmToggle {
-  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
-  @Prop() disabled: boolean = false;
-  @Prop() label?: string;
-  /** Position of the label relative to the track */
-  @Prop() labelPosition: 'start' | 'end' = 'end';
-  @Prop() name?: string;
-  @Prop() noSound: boolean = false;
-
-  @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<boolean>;
-
+export class Toggle {
   private inputId = `rythm-toggle-${++toggleIdCounter}`;
 
-  private handleChange(ev: Event) {
+  /** Whether the toggle is on. */
+  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
+
+  /** Disables the toggle. */
+  @Prop() disabled: boolean = false;
+
+  /** Visible label text. Falls back to slotted content when omitted. */
+  @Prop() label?: string;
+
+  /** Position of the label relative to the track. */
+  @Prop() labelPosition: 'start' | 'end' = 'end';
+
+  /** Form field name. */
+  @Prop() name?: string;
+
+  /** Suppress sound feedback for this instance. */
+  @Prop() noSound: boolean = false;
+
+  /** Fired when the toggle state changes. */
+  @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<boolean>;
+
+  private onToggleChange(ev: Event) {
     this.checked = (ev.target as HTMLInputElement).checked;
     if (!this.noSound) playSound(this.checked ? 'toggle-on' : 'toggle-off');
     this.rythmChange.emit(this.checked);
@@ -53,7 +67,7 @@ export class RythmToggle {
               disabled={this.disabled}
               name={this.name}
               aria-checked={this.checked ? 'true' : 'false'}
-              onChange={(ev: Event) => this.handleChange(ev)}
+              onChange={(ev: Event) => this.onToggleChange(ev)}
             />
             <span class="toggle__track" aria-hidden="true">
               <span class="toggle__thumb" />

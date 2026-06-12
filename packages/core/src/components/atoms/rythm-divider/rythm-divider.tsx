@@ -1,14 +1,19 @@
 import { Component, Prop, h, Host } from '@stencil/core';
 
+/**
+ * Visual separator between content sections, with an optional centred text label.
+ */
 @Component({
   tag: 'rythm-divider',
   styleUrl: 'rythm-divider.css',
   shadow: true,
 })
-export class RythmDivider {
-  @Prop() orientation: 'horizontal' | 'vertical' = 'horizontal';
-  /** Optional label displayed at the centre of the divider */
+export class Divider {
+  /** Optional label displayed at the centre of the divider line. */
   @Prop() label?: string;
+
+  /** Orientation of the divider line. */
+  @Prop() orientation: 'horizontal' | 'vertical' = 'horizontal';
 
   render() {
     const isVertical = this.orientation === 'vertical';
@@ -26,9 +31,7 @@ export class RythmDivider {
             'divider--labeled': !!this.label,
           }}
         >
-          {this.label && (
-            <span class="divider__label">{this.label}</span>
-          )}
+          {this.label && <span class="divider__label">{this.label}</span>}
         </div>
       </Host>
     );

@@ -28,6 +28,13 @@
         "command": "npm test",
         "cwd": "packages/core"
       }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run lint",
+        "cwd": "packages/core"
+      }
     }
   }
 }

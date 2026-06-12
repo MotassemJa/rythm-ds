@@ -5,23 +5,27 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Accessible toggle switch using a checkbox with `role="switch"`.
+
 ## Properties
 
-| Property        | Attribute        | Description                                 | Type                  | Default     |
-| --------------- | ---------------- | ------------------------------------------- | --------------------- | ----------- |
-| `checked`       | `checked`        |                                             | `boolean`             | `false`     |
-| `disabled`      | `disabled`       |                                             | `boolean`             | `false`     |
-| `label`         | `label`          |                                             | `string \| undefined` | `undefined` |
-| `labelPosition` | `label-position` | Position of the label relative to the track | `"end" \| "start"`    | `'end'`     |
-| `name`          | `name`           |                                             | `string \| undefined` | `undefined` |
-| `noSound`       | `no-sound`       |                                             | `boolean`             | `false`     |
+| Property        | Attribute        | Description                                                     | Type                  | Default     |
+| --------------- | ---------------- | --------------------------------------------------------------- | --------------------- | ----------- |
+| `checked`       | `checked`        | Whether the toggle is on.                                       | `boolean`             | `false`     |
+| `disabled`      | `disabled`       | Disables the toggle.                                            | `boolean`             | `false`     |
+| `label`         | `label`          | Visible label text. Falls back to slotted content when omitted. | `string \| undefined` | `undefined` |
+| `labelPosition` | `label-position` | Position of the label relative to the track.                    | `"end" \| "start"`    | `'end'`     |
+| `name`          | `name`           | Form field name.                                                | `string \| undefined` | `undefined` |
+| `noSound`       | `no-sound`       | Suppress sound feedback for this instance.                      | `boolean`             | `false`     |
 
 
 ## Events
 
-| Event         | Description | Type                   |
-| ------------- | ----------- | ---------------------- |
-| `rythmChange` |             | `CustomEvent<boolean>` |
+| Event         | Description                          | Type                   |
+| ------------- | ------------------------------------ | ---------------------- |
+| `rythmChange` | Fired when the toggle state changes. | `CustomEvent<boolean>` |
 
 
 ----------------------------------------------

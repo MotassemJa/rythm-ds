@@ -72,7 +72,9 @@ export class RythmButton {
 
 
 export declare interface RythmButton extends Components.RythmButton {
-
+  /**
+   * Fired on click when the button is neither disabled nor loading.
+   */
   rythmClick: EventEmitter<CustomEvent<MouseEvent>>;
 }
 
@@ -98,7 +100,9 @@ export class RythmCheckbox {
 
 
 export declare interface RythmCheckbox extends Components.RythmCheckbox {
-
+  /**
+   * Fired when the checked state changes.
+   */
   rythmChange: EventEmitter<CustomEvent<boolean>>;
 }
 
@@ -162,22 +166,32 @@ export class RythmInput {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['rythmInput', 'rythmChange', 'rythmClear', 'rythmFocus', 'rythmBlur']);
+    proxyOutputs(this, this.el, ['rythmBlur', 'rythmChange', 'rythmClear', 'rythmFocus', 'rythmInput']);
   }
 }
 
 
 export declare interface RythmInput extends Components.RythmInput {
-
-  rythmInput: EventEmitter<CustomEvent<string>>;
-
-  rythmChange: EventEmitter<CustomEvent<string>>;
-
-  rythmClear: EventEmitter<CustomEvent<void>>;
-
-  rythmFocus: EventEmitter<CustomEvent<void>>;
-
+  /**
+   * Fired when the input loses focus.
+   */
   rythmBlur: EventEmitter<CustomEvent<void>>;
+  /**
+   * Fired when the value is committed (equivalent to the native `change` event).
+   */
+  rythmChange: EventEmitter<CustomEvent<string>>;
+  /**
+   * Fired when the clear button is clicked.
+   */
+  rythmClear: EventEmitter<CustomEvent<void>>;
+  /**
+   * Fired when the input receives focus.
+   */
+  rythmFocus: EventEmitter<CustomEvent<void>>;
+  /**
+   * Fired on every keystroke.
+   */
+  rythmInput: EventEmitter<CustomEvent<string>>;
 }
 
 
@@ -202,7 +216,9 @@ export class RythmRadio {
 
 
 export declare interface RythmRadio extends Components.RythmRadio {
-
+  /**
+   * Fired when this radio button is selected.
+   */
   rythmChange: EventEmitter<CustomEvent<string | undefined>>;
 }
 
@@ -228,7 +244,9 @@ export class RythmRadioGroup {
 
 
 export declare interface RythmRadioGroup extends Components.RythmRadioGroup {
-
+  /**
+   * Fired when the selected value changes.
+   */
   rythmChange: EventEmitter<CustomEvent<string>>;
 }
 
@@ -276,7 +294,9 @@ export class RythmTag {
 
 
 export declare interface RythmTag extends Components.RythmTag {
-
+  /**
+   * Fired when the dismiss button is clicked.
+   */
   rythmDismiss: EventEmitter<CustomEvent<void>>;
 }
 
@@ -324,7 +344,9 @@ export class RythmToggle {
 
 
 export declare interface RythmToggle extends Components.RythmToggle {
-
+  /**
+   * Fired when the toggle state changes.
+   */
   rythmChange: EventEmitter<CustomEvent<boolean>>;
 }
 

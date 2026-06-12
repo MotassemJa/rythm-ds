@@ -20,6 +20,7 @@
   "scripts": {
     "build": "stencil build --docs",
     "dev": "stencil build --watch --serve",
+    "lint": "eslint src --ext .ts,.tsx",
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watchAll",
     "generate": "stencil generate"

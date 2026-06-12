@@ -5,29 +5,34 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Interactive button with multiple variants, colors, sizes, icon slots, and loading state.
+Renders as an `<a>` element when `href` is provided.
+
 ## Properties
 
-| Property    | Attribute    | Description                                                    | Type                                                                          | Default     |
-| ----------- | ------------ | -------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
-| `color`     | `color`      |                                                                | `"danger" \| "neutral" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `disabled`  | `disabled`   |                                                                | `boolean`                                                                     | `false`     |
-| `href`      | `href`       |                                                                | `string \| undefined`                                                         | `undefined` |
-| `iconEnd`   | `icon-end`   | Icon name rendered after the label                             | `string \| undefined`                                                         | `undefined` |
-| `iconOnly`  | `icon-only`  | Square icon-only button — requires an aria-label on the host   | `boolean`                                                                     | `false`     |
-| `iconStart` | `icon-start` | Icon name (from rythm-icon registry) rendered before the label | `string \| undefined`                                                         | `undefined` |
-| `loading`   | `loading`    |                                                                | `boolean`                                                                     | `false`     |
-| `noSound`   | `no-sound`   | Suppress sound for this instance                               | `boolean`                                                                     | `false`     |
-| `size`      | `size`       |                                                                | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                        | `'md'`      |
-| `target`    | `target`     |                                                                | `string \| undefined`                                                         | `undefined` |
-| `type`      | `type`       |                                                                | `"button" \| "reset" \| "submit"`                                             | `'button'`  |
-| `variant`   | `variant`    |                                                                | `"ghost" \| "link" \| "outline" \| "solid"`                                   | `'solid'`   |
+| Property    | Attribute    | Description                                                                    | Type                                                                          | Default     |
+| ----------- | ------------ | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- | ----------- |
+| `color`     | `color`      | Color intent.                                                                  | `"danger" \| "neutral" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `disabled`  | `disabled`   | Disables interaction and applies disabled styling.                             | `boolean`                                                                     | `false`     |
+| `href`      | `href`       | Renders the button as an anchor element pointing to this URL.                  | `string \| undefined`                                                         | `undefined` |
+| `iconEnd`   | `icon-end`   | Icon name (from rythm-icon registry) rendered after the label.                 | `string \| undefined`                                                         | `undefined` |
+| `iconOnly`  | `icon-only`  | Square icon-only button — requires an `aria-label` on the host element.        | `boolean`                                                                     | `false`     |
+| `iconStart` | `icon-start` | Icon name (from rythm-icon registry) rendered before the label.                | `string \| undefined`                                                         | `undefined` |
+| `loading`   | `loading`    | Shows a spinner and prevents interaction while an async action is in progress. | `boolean`                                                                     | `false`     |
+| `noSound`   | `no-sound`   | Suppress the click sound for this instance.                                    | `boolean`                                                                     | `false`     |
+| `size`      | `size`       | Visual size.                                                                   | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                        | `'md'`      |
+| `target`    | `target`     | Anchor `target` attribute; applied only when `href` is set.                    | `string \| undefined`                                                         | `undefined` |
+| `type`      | `type`       | Native button `type` attribute.                                                | `"button" \| "reset" \| "submit"`                                             | `'button'`  |
+| `variant`   | `variant`    | Visual style variant.                                                          | `"ghost" \| "link" \| "outline" \| "solid"`                                   | `'solid'`   |
 
 
 ## Events
 
-| Event        | Description | Type                      |
-| ------------ | ----------- | ------------------------- |
-| `rythmClick` |             | `CustomEvent<MouseEvent>` |
+| Event        | Description                                                     | Type                      |
+| ------------ | --------------------------------------------------------------- | ------------------------- |
+| `rythmClick` | Fired on click when the button is neither disabled nor loading. | `CustomEvent<MouseEvent>` |
 
 
 ## Dependencies

@@ -5,49 +5,95 @@ let inputIdCounter = 0;
 
 type InputType = 'text' | 'email' | 'password' | 'search' | 'url' | 'number' | 'tel';
 
+/**
+ * Accessible text input with label, hint, error, icon slots, password visibility
+ * toggle, and clearable support.
+ */
 @Component({
   tag: 'rythm-input',
   styleUrl: 'rythm-input.css',
   shadow: true,
 })
-export class RythmInput {
-  @Prop() type: InputType = 'text';
-  @Prop({ mutable: true }) value: string = '';
-  @Prop() placeholder?: string;
-  @Prop() label?: string;
-  /** Helper text below the input */
-  @Prop() hint?: string;
-  /** Error message — sets aria-invalid and shows below input */
-  @Prop() error?: string;
-  @Prop() disabled: boolean = false;
-  @Prop() readonly: boolean = false;
-  @Prop() required: boolean = false;
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
-  /** Lucide icon name displayed at the start */
-  @Prop() iconStart?: string;
-  /** Lucide icon name displayed at the end */
-  @Prop() iconEnd?: string;
-  /** Shows a clear (×) button when the field has a value */
-  @Prop() clearable: boolean = false;
-  @Prop() name?: string;
-  @Prop() autocomplete?: string;
-  @Prop() noSound: boolean = false;
+export class Input {
+  private inputId = '';
+  private hintId = '';
+  private errorId = '';
 
+  /** @internal Whether the password is currently visible. */
   @State() private showPassword: boolean = false;
 
-  @Event({ eventName: 'rythmInput' })  rythmInput!:  EventEmitter<string>;
-  @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<string>;
-  @Event({ eventName: 'rythmClear' })  rythmClear!:  EventEmitter<void>;
-  @Event({ eventName: 'rythmFocus' })  rythmFocus!:  EventEmitter<void>;
-  @Event({ eventName: 'rythmBlur' })   rythmBlur!:   EventEmitter<void>;
+  /** Native `autocomplete` attribute. */
+  @Prop() autocomplete?: string;
 
-  private inputId    = `rythm-input-${++inputIdCounter}`;
-  private hintId     = `${this.inputId}-hint`;
-  private errorId    = `${this.inputId}-error`;
+  /** Shows a clear (×) button when the field has a value. */
+  @Prop() clearable: boolean = false;
+
+  /** Disables the input. */
+  @Prop() disabled: boolean = false;
+
+  /** Error message — sets `aria-invalid` and renders below the input with `role="alert"`. */
+  @Prop() error?: string;
+
+  /** Helper text displayed below the input when there is no error. */
+  @Prop() hint?: string;
+
+  /** Lucide icon name displayed at the end of the field. */
+  @Prop() iconEnd?: string;
+
+  /** Lucide icon name displayed at the start of the field. */
+  @Prop() iconStart?: string;
+
+  /** Visible label text rendered above the input. */
+  @Prop() label?: string;
+
+  /** Form field name. */
+  @Prop() name?: string;
+
+  /** Suppress sound feedback for this instance. */
+  @Prop() noSound: boolean = false;
+
+  /** Placeholder text shown when the field is empty. */
+  @Prop() placeholder?: string;
+
+  /** Makes the input read-only. */
+  @Prop() readonly: boolean = false;
+
+  /** Marks the field as required. */
+  @Prop() required: boolean = false;
+
+  /** Visual size variant. */
+  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
+
+  /** Input type. Changing to `password` enables the show/hide toggle. */
+  @Prop() type: InputType = 'text';
+
+  /** Controlled value of the input. */
+  @Prop({ mutable: true }) value: string = '';
+
+  /** Fired when the input loses focus. */
+  @Event({ eventName: 'rythmBlur' }) rythmBlur!: EventEmitter<void>;
+
+  /** Fired when the value is committed (equivalent to the native `change` event). */
+  @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<string>;
+
+  /** Fired when the clear button is clicked. */
+  @Event({ eventName: 'rythmClear' }) rythmClear!: EventEmitter<void>;
+
+  /** Fired when the input receives focus. */
+  @Event({ eventName: 'rythmFocus' }) rythmFocus!: EventEmitter<void>;
+
+  /** Fired on every keystroke. */
+  @Event({ eventName: 'rythmInput' }) rythmInput!: EventEmitter<string>;
+
+  componentWillLoad() {
+    this.inputId = `rythm-input-${++inputIdCounter}`;
+    this.hintId = `${this.inputId}-hint`;
+    this.errorId = `${this.inputId}-error`;
+  }
 
   private get describedBy(): string | undefined {
     const ids: string[] = [];
-    if (this.hint)  ids.push(this.hintId);
+    if (this.hint) ids.push(this.hintId);
     if (this.error) ids.push(this.errorId);
     return ids.length ? ids.join(' ') : undefined;
   }
@@ -57,20 +103,20 @@ export class RythmInput {
     return this.type;
   }
 
-  private handleInput(ev: Event) {
-    this.value = (ev.target as HTMLInputElement).value;
-    this.rythmInput.emit(this.value);
-  }
-
-  private handleChange(ev: Event) {
+  private onInputChange(ev: Event) {
     this.value = (ev.target as HTMLInputElement).value;
     this.rythmChange.emit(this.value);
   }
 
-  private handleClear() {
+  private onInputClear() {
     this.value = '';
     if (!this.noSound) playSound('click');
     this.rythmClear.emit();
+  }
+
+  private onInputInput(ev: Event) {
+    this.value = (ev.target as HTMLInputElement).value;
+    this.rythmInput.emit(this.value);
   }
 
   render() {
@@ -81,11 +127,20 @@ export class RythmInput {
 
     return (
       <Host>
-        <div class={{ 'field': true, [`field--${this.size}`]: true, 'field--error': hasError, 'field--disabled': this.disabled }}>
+        <div
+          class={{
+            field: true,
+            [`field--${this.size}`]: true,
+            'field--error': hasError,
+            'field--disabled': this.disabled,
+          }}
+        >
           {this.label && (
             <label class="field__label" htmlFor={this.inputId}>
               {this.label}
-              {this.required && <span class="field__required" aria-hidden="true"> *</span>}
+              {this.required && (
+                <span class="field__required" aria-hidden="true"> *</span>
+              )}
             </label>
           )}
 
@@ -114,13 +169,12 @@ export class RythmInput {
               aria-invalid={hasError ? 'true' : undefined}
               aria-describedby={this.describedBy}
               aria-required={this.required ? 'true' : undefined}
-              onInput={(ev: Event) => this.handleInput(ev)}
-              onChange={(ev: Event) => this.handleChange(ev)}
+              onInput={(ev: Event) => this.onInputInput(ev)}
+              onChange={(ev: Event) => this.onInputChange(ev)}
               onFocus={() => this.rythmFocus.emit()}
               onBlur={() => this.rythmBlur.emit()}
             />
 
-            {/* Password toggle */}
             {isPassword && (
               <button
                 type="button"
@@ -132,19 +186,17 @@ export class RythmInput {
               </button>
             )}
 
-            {/* Clear button */}
             {showClear && (
               <button
                 type="button"
                 class="field__icon field__icon--end field__icon--btn"
                 aria-label="Clear"
-                onClick={() => this.handleClear()}
+                onClick={() => this.onInputClear()}
               >
                 <rythm-icon name="x" size="sm" />
               </button>
             )}
 
-            {/* End icon (decorative) */}
             {showEndIcon && (
               <span class="field__icon field__icon--end" aria-hidden="true">
                 <rythm-icon name={this.iconEnd!} size="sm" />
@@ -153,7 +205,9 @@ export class RythmInput {
           </div>
 
           {this.hint && !hasError && (
-            <p id={this.hintId} class="field__hint">{this.hint}</p>
+            <p id={this.hintId} class="field__hint">
+              {this.hint}
+            </p>
           )}
           {hasError && (
             <p id={this.errorId} class="field__error" role="alert">

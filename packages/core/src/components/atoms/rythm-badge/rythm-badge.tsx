@@ -3,16 +3,23 @@ import { Component, Prop, h, Host } from '@stencil/core';
 export type BadgeColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'neutral';
 export type BadgeSize = 'sm' | 'md';
 
+/**
+ * Compact visual indicator for status labels or numeric counts.
+ */
 @Component({
   tag: 'rythm-badge',
   styleUrl: 'rythm-badge.css',
   shadow: true,
 })
-export class RythmBadge {
+export class Badge {
+  /** Color intent. */
   @Prop() color: BadgeColor = 'neutral';
-  @Prop() size: BadgeSize = 'md';
-  /** Renders as a small dot with no text */
+
+  /** Renders as a small dot with no text; hides slot content from assistive tech. */
   @Prop() dot: boolean = false;
+
+  /** Visual size. */
+  @Prop() size: BadgeSize = 'md';
 
   render() {
     return (

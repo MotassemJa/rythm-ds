@@ -2,17 +2,21 @@ import { Component, Prop, h, Host } from '@stencil/core';
 
 export type SpinnerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
+/**
+ * Animated SVG arc loading indicator. Announces its label to screen readers
+ * via `role="status"`.
+ */
 @Component({
   tag: 'rythm-spinner',
   styleUrl: 'rythm-spinner.css',
   shadow: true,
 })
-export class RythmSpinner {
-  /** Visual size of the spinner */
-  @Prop() size: SpinnerSize = 'md';
-
-  /** Accessible label announced to screen readers */
+export class Spinner {
+  /** Accessible label announced to screen readers. */
   @Prop() label: string = 'Loading…';
+
+  /** Visual size of the spinner. */
+  @Prop() size: SpinnerSize = 'md';
 
   render() {
     return (
@@ -25,7 +29,9 @@ export class RythmSpinner {
         >
           <circle
             class="spinner__track"
-            cx="12" cy="12" r="10"
+            cx="12"
+            cy="12"
+            r="10"
             stroke-width="2.5"
           />
           <path

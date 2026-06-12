@@ -2,25 +2,38 @@ import { Component, Prop, State, h, Host } from '@stencil/core';
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
+/**
+ * Displays a user avatar with an image, initials, or icon as a fallback chain.
+ * @part avatar - The inner container div.
+ */
 @Component({
   tag: 'rythm-avatar',
   styleUrl: 'rythm-avatar.css',
   shadow: true,
 })
-export class RythmAvatar {
-  @Prop() src?: string;
-  @Prop() alt?: string;
-  /** Up to two initials shown as fallback when no image is provided or it fails to load */
-  @Prop() initials?: string;
-  /** Lucide icon name used as fallback when no src or initials are provided */
-  @Prop() icon: string = 'user';
-  @Prop() size: AvatarSize = 'md';
-  /** Shape: circle (default) or square */
-  @Prop() shape: 'circle' | 'square' = 'circle';
-
+export class Avatar {
+  /** @internal Set to true when the src image fails to load. */
   @State() imgError = false;
 
-  private handleImgError() {
+  /** Accessible alt text for the image; also used as the host aria-label. */
+  @Prop() alt?: string;
+
+  /** Lucide icon name used as the last fallback when no src or initials are provided. */
+  @Prop() icon: string = 'user';
+
+  /** Up to two initials shown when no image is provided or it fails to load. */
+  @Prop() initials?: string;
+
+  /** Shape of the avatar container. */
+  @Prop() shape: 'circle' | 'square' = 'circle';
+
+  /** Visual size. */
+  @Prop() size: AvatarSize = 'md';
+
+  /** Image URL. */
+  @Prop() src?: string;
+
+  private onImgError() {
     this.imgError = true;
   }
 
@@ -42,7 +55,7 @@ export class RythmAvatar {
             <img
               src={this.src}
               alt={this.alt ?? ''}
-              onError={() => this.handleImgError()}
+              onError={() => this.onImgError()}
               class="avatar__img"
             />
           )}
@@ -51,9 +64,7 @@ export class RythmAvatar {
               {this.initials!.slice(0, 2).toUpperCase()}
             </span>
           )}
-          {showIcon && (
-            <rythm-icon name={this.icon} size="md" />
-          )}
+          {showIcon && <rythm-icon name={this.icon} size="md" />}
         </div>
       </Host>
     );

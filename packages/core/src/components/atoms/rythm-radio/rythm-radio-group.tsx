@@ -1,35 +1,51 @@
 import { Component, Prop, Event, EventEmitter, Listen, Element, h, Host } from '@stencil/core';
 
+/**
+ * Groups `rythm-radio` elements into a single named fieldset, managing shared
+ * selection state and propagating disabled/required to all children.
+ */
 @Component({
   tag: 'rythm-radio-group',
   styleUrl: 'rythm-radio-group.css',
   shadow: true,
 })
-export class RythmRadioGroup {
+export class RadioGroup {
   @Element() el!: HTMLElement;
 
-  @Prop({ mutable: true, reflect: true }) value?: string;
-  @Prop() name!: string;
-  @Prop() label?: string;
-  @Prop() orientation: 'horizontal' | 'vertical' = 'vertical';
-  @Prop() required: boolean = false;
+  /** Disables all radio buttons in the group. */
   @Prop() disabled: boolean = false;
 
-  @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<string>;
+  /** Accessible `<legend>` text for the fieldset. */
+  @Prop() label?: string;
 
-  @Listen('rythmChange')
-  onChildChange(ev: CustomEvent<string>) {
-    ev.stopPropagation();
-    this.value = ev.detail;
-    this.rythmChange.emit(this.value);
-    this.syncChildren();
-  }
+  /** Shared `name` attribute applied to all `rythm-radio` children. */
+  @Prop() name!: string;
+
+  /** Layout orientation of the radio options. */
+  @Prop() orientation: 'horizontal' | 'vertical' = 'vertical';
+
+  /** Marks all radio buttons as required. */
+  @Prop() required: boolean = false;
+
+  /** Currently selected value; mutable so the group can update it on child change. */
+  @Prop({ mutable: true, reflect: true }) value?: string;
+
+  /** Fired when the selected value changes. */
+  @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<string>;
 
   componentDidLoad() {
     this.syncChildren();
   }
 
   componentDidUpdate() {
+    this.syncChildren();
+  }
+
+  @Listen('rythmChange')
+  onChildChange(ev: CustomEvent<string>) {
+    ev.stopPropagation();
+    this.value = ev.detail;
+    this.rythmChange.emit(this.value);
     this.syncChildren();
   }
 
