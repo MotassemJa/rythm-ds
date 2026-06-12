@@ -1,0 +1,310 @@
+/* ============================================================
+   Rythm Design System — tokens.css
+   Generated from: packages/tokens/src/css/tokens.css
+   DO NOT edit the dist copy — edit the source.
+   ============================================================ */
+
+/* ── 1. CSS @layer declaration order ───────────────────────── */
+@layer rythm.primitives, rythm.scales, rythm.semantic, rythm.component;
+
+/* ── 2. Primitive anchors & fixed primitives ────────────────── */
+@layer rythm.primitives {
+  :root {
+    /* Brand anchors — override these two to rebrand the entire system */
+    --rythm-color-primary:   oklch(0.6829 0.1241 220.2);
+    --rythm-color-secondary: oklch(0.6825 0.184  6.73);
+
+    /* Neutral anchor — hue-matched to primary, chroma stripped */
+    --rythm-color-neutral-base: oklch(from var(--rythm-color-primary) 0.50 0.008 h);
+
+    /* Semantic feedback (fixed hues, independent of brand) */
+    --rythm-color-success-base: oklch(0.60 0.17 145);
+    --rythm-color-warning-base: oklch(0.72 0.17  72);
+    --rythm-color-error-base:   oklch(0.58 0.20  25);
+    --rythm-color-info-base:    oklch(0.62 0.14 240);
+
+    /* Font families */
+    --rythm-font-sans: 'Inter Variable', system-ui, sans-serif;
+    --rythm-font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+    /* Font weights */
+    --rythm-font-weight-regular:  400;
+    --rythm-font-weight-medium:   500;
+    --rythm-font-weight-semibold: 600;
+    --rythm-font-weight-bold:     700;
+
+    /* Line heights */
+    --rythm-leading-tight:   1.15;
+    --rythm-leading-snug:    1.35;
+    --rythm-leading-normal:  1.5;
+    --rythm-leading-relaxed: 1.65;
+
+    /* Border radius */
+    --rythm-radius-none: 0;
+    --rythm-radius-sm:   4px;
+    --rythm-radius-md:   8px;
+    --rythm-radius-lg:   12px;
+    --rythm-radius-xl:   16px;
+    --rythm-radius-full: 9999px;
+
+    /* Shadows */
+    --rythm-shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.06);
+    --rythm-shadow-md: 0 4px 8px oklch(0% 0 0 / 0.10);
+    --rythm-shadow-lg: 0 12px 24px oklch(0% 0 0 / 0.12);
+    --rythm-shadow-xl: 0 24px 48px oklch(0% 0 0 / 0.16);
+
+    /* Motion */
+    --rythm-duration-instant: 0ms;
+    --rythm-duration-fast:    100ms;
+    --rythm-duration-normal:  200ms;
+    --rythm-duration-slow:    350ms;
+    --rythm-easing-standard:  cubic-bezier(0.2, 0, 0, 1);
+    --rythm-easing-enter:     cubic-bezier(0, 0, 0.2, 1);
+    --rythm-easing-exit:      cubic-bezier(0.4, 0, 1, 1);
+    --rythm-easing-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ── Utopia Fluid Type Scale ──────────────────────────────
+       Viewport: 360px → 1240px | Base: 18px → 20px
+       Min scale: 1.2 (minor third) | Max scale: 1.25 (major third)
+       ────────────────────────────────────────────────────── */
+    --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vi, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vi, 1rem);
+    --step-0:  clamp(1.125rem,  1.0739rem + 0.2273vi, 1.25rem);
+    --step-1:  clamp(1.35rem,   1.2631rem + 0.3864vi, 1.5625rem);
+    --step-2:  clamp(1.62rem,   1.4837rem + 0.6057vi, 1.9531rem);
+    --step-3:  clamp(1.944rem,  1.7405rem + 0.9044vi, 2.4414rem);
+    --step-4:  clamp(2.3328rem, 2.0387rem + 1.3072vi, 3.0518rem);
+    --step-5:  clamp(2.7994rem, 2.384rem  + 1.8461vi, 3.8147rem);
+
+    /* Font size semantic aliases */
+    --rythm-font-size-xs:   var(--step--2);
+    --rythm-font-size-sm:   var(--step--1);
+    --rythm-font-size-base: var(--step-0);
+    --rythm-font-size-md:   var(--step-1);
+    --rythm-font-size-lg:   var(--step-2);
+    --rythm-font-size-xl:   var(--step-3);
+    --rythm-font-size-2xl:  var(--step-4);
+    --rythm-font-size-3xl:  var(--step-5);
+
+    /* ── Utopia Fluid Space Scale ─────────────────────────────
+       Same viewport range, base space = base font size (18→20px)
+       ────────────────────────────────────────────────────── */
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0vi,      0.3125rem);
+    --space-2xs: clamp(0.5625rem, 0.5369rem + 0.1136vi, 0.625rem);
+    --space-xs:  clamp(0.875rem,  0.8494rem + 0.1136vi, 0.9375rem);
+    --space-s:   clamp(1.125rem,  1.0739rem + 0.2273vi, 1.25rem);
+    --space-m:   clamp(1.6875rem, 1.6108rem + 0.3409vi, 1.875rem);
+    --space-l:   clamp(2.25rem,   2.1477rem + 0.4545vi, 2.5rem);
+    --space-xl:  clamp(3.375rem,  3.2216rem + 0.6818vi, 3.75rem);
+    --space-2xl: clamp(4.5rem,    4.2955rem + 0.9091vi, 5rem);
+    --space-3xl: clamp(6.75rem,   6.4432rem + 1.3636vi, 7.5rem);
+
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.3125rem, 0.1847rem + 0.5682vi, 0.625rem);
+    --space-2xs-xs:  clamp(0.5625rem, 0.4091rem + 0.6818vi, 0.9375rem);
+    --space-xs-s:    clamp(0.875rem,  0.7216rem + 0.6818vi, 1.25rem);
+    --space-s-m:     clamp(1.125rem,  0.8182rem + 1.3636vi, 1.875rem);
+    --space-m-l:     clamp(1.6875rem, 1.3551rem + 1.4773vi, 2.5rem);
+    --space-l-xl:    clamp(2.25rem,   1.6364rem + 2.7273vi, 3.75rem);
+    --space-xl-2xl:  clamp(3.375rem,  2.7102rem + 2.9545vi, 5rem);
+    --space-2xl-3xl: clamp(4.5rem,    3.2727rem + 5.4545vi, 7.5rem);
+
+    /* Custom pair */
+    --space-s-l: clamp(1.125rem, 0.5625rem + 2.5vi, 2.5rem);
+  }
+}
+
+/* ── 3. Tonal scales via CSS Relative Colors ────────────────── */
+/*
+   These run at runtime in the browser — no build step needed.
+   Changing --rythm-color-primary or --rythm-color-secondary
+   automatically re-derives the full 50–950 scale.
+*/
+@layer rythm.scales {
+  :root {
+    /* Primary tonal scale */
+    --rythm-color-primary-50:  oklch(from var(--rythm-color-primary) 0.97 calc(c * 0.12) h);
+    --rythm-color-primary-100: oklch(from var(--rythm-color-primary) 0.93 calc(c * 0.22) h);
+    --rythm-color-primary-200: oklch(from var(--rythm-color-primary) 0.86 calc(c * 0.42) h);
+    --rythm-color-primary-300: oklch(from var(--rythm-color-primary) 0.77 calc(c * 0.62) h);
+    --rythm-color-primary-400: oklch(from var(--rythm-color-primary) 0.71 calc(c * 0.82) h);
+    --rythm-color-primary-500: oklch(from var(--rythm-color-primary) l c h);
+    --rythm-color-primary-600: oklch(from var(--rythm-color-primary) calc(l - 0.07) c h);
+    --rythm-color-primary-700: oklch(from var(--rythm-color-primary) calc(l - 0.15) c h);
+    --rythm-color-primary-800: oklch(from var(--rythm-color-primary) calc(l - 0.25) c h);
+    --rythm-color-primary-900: oklch(from var(--rythm-color-primary) calc(l - 0.35) c h);
+    --rythm-color-primary-950: oklch(from var(--rythm-color-primary) calc(l - 0.44) c h);
+
+    /* Secondary tonal scale */
+    --rythm-color-secondary-50:  oklch(from var(--rythm-color-secondary) 0.97 calc(c * 0.12) h);
+    --rythm-color-secondary-100: oklch(from var(--rythm-color-secondary) 0.93 calc(c * 0.22) h);
+    --rythm-color-secondary-200: oklch(from var(--rythm-color-secondary) 0.86 calc(c * 0.42) h);
+    --rythm-color-secondary-300: oklch(from var(--rythm-color-secondary) 0.77 calc(c * 0.62) h);
+    --rythm-color-secondary-400: oklch(from var(--rythm-color-secondary) 0.71 calc(c * 0.82) h);
+    --rythm-color-secondary-500: oklch(from var(--rythm-color-secondary) l c h);
+    --rythm-color-secondary-600: oklch(from var(--rythm-color-secondary) calc(l - 0.07) c h);
+    --rythm-color-secondary-700: oklch(from var(--rythm-color-secondary) calc(l - 0.15) c h);
+    --rythm-color-secondary-800: oklch(from var(--rythm-color-secondary) calc(l - 0.25) c h);
+    --rythm-color-secondary-900: oklch(from var(--rythm-color-secondary) calc(l - 0.35) c h);
+    --rythm-color-secondary-950: oklch(from var(--rythm-color-secondary) calc(l - 0.44) c h);
+
+    /* Neutral tonal scale (hue-tinted from primary anchor) */
+    --rythm-color-neutral-50:  oklch(from var(--rythm-color-neutral-base) 0.97 calc(c * 0.5) h);
+    --rythm-color-neutral-100: oklch(from var(--rythm-color-neutral-base) 0.93 calc(c * 0.5) h);
+    --rythm-color-neutral-200: oklch(from var(--rythm-color-neutral-base) 0.87 calc(c * 0.5) h);
+    --rythm-color-neutral-300: oklch(from var(--rythm-color-neutral-base) 0.77 calc(c * 0.5) h);
+    --rythm-color-neutral-400: oklch(from var(--rythm-color-neutral-base) 0.65 calc(c * 0.5) h);
+    --rythm-color-neutral-500: oklch(from var(--rythm-color-neutral-base) l c h);
+    --rythm-color-neutral-600: oklch(from var(--rythm-color-neutral-base) 0.40 calc(c * 0.5) h);
+    --rythm-color-neutral-700: oklch(from var(--rythm-color-neutral-base) 0.32 calc(c * 0.5) h);
+    --rythm-color-neutral-800: oklch(from var(--rythm-color-neutral-base) 0.24 calc(c * 0.5) h);
+    --rythm-color-neutral-900: oklch(from var(--rythm-color-neutral-base) 0.17 calc(c * 0.5) h);
+    --rythm-color-neutral-950: oklch(from var(--rythm-color-neutral-base) 0.12 calc(c * 0.5) h);
+
+    /* Feedback tonal stops */
+    --rythm-color-success-light: oklch(from var(--rythm-color-success-base) 0.93 calc(c * 0.3) h);
+    --rythm-color-success:       var(--rythm-color-success-base);
+    --rythm-color-success-dark:  oklch(from var(--rythm-color-success-base) calc(l - 0.15) c h);
+
+    --rythm-color-warning-light: oklch(from var(--rythm-color-warning-base) 0.95 calc(c * 0.3) h);
+    --rythm-color-warning:       var(--rythm-color-warning-base);
+    --rythm-color-warning-dark:  oklch(from var(--rythm-color-warning-base) calc(l - 0.15) c h);
+
+    --rythm-color-error-light: oklch(from var(--rythm-color-error-base) 0.93 calc(c * 0.3) h);
+    --rythm-color-error:       var(--rythm-color-error-base);
+    --rythm-color-error-dark:  oklch(from var(--rythm-color-error-base) calc(l - 0.15) c h);
+
+    --rythm-color-info-light: oklch(from var(--rythm-color-info-base) 0.93 calc(c * 0.3) h);
+    --rythm-color-info:       var(--rythm-color-info-base);
+    --rythm-color-info-dark:  oklch(from var(--rythm-color-info-base) calc(l - 0.15) c h);
+  }
+}
+
+/* ── 4. Semantic tokens — light theme (default) ─────────────── */
+@layer rythm.semantic {
+  :root {
+    /* Surface */
+    --rythm-color-surface-default: var(--rythm-color-neutral-50);
+    --rythm-color-surface-subtle:  var(--rythm-color-neutral-100);
+    --rythm-color-surface-raised:  oklch(from var(--rythm-color-neutral-50) l c h / 0.92);
+    --rythm-color-surface-overlay: oklch(from var(--rythm-color-neutral-50) l c h / 0.92);
+
+    /* Text */
+    --rythm-color-text-primary:   var(--rythm-color-neutral-950);
+    --rythm-color-text-secondary: var(--rythm-color-neutral-600);
+    --rythm-color-text-tertiary:  var(--rythm-color-neutral-400);
+    --rythm-color-text-disabled:  var(--rythm-color-neutral-400);
+    --rythm-color-text-on-brand:  oklch(0.98 0.003 220);
+    --rythm-color-text-on-dark:   oklch(0.98 0.003 220);
+
+    /* Border */
+    --rythm-color-border-default: var(--rythm-color-neutral-200);
+    --rythm-color-border-strong:  var(--rythm-color-neutral-400);
+    --rythm-color-border-focus:   var(--rythm-color-primary-500);
+
+    /* Brand */
+    --rythm-color-brand-primary:      var(--rythm-color-primary-500);
+    --rythm-color-brand-primary-hover: var(--rythm-color-primary-600);
+    --rythm-color-brand-secondary:    var(--rythm-color-secondary-500);
+    --rythm-color-brand-secondary-hover: var(--rythm-color-secondary-600);
+
+    /* Focus ring */
+    --rythm-focus-ring: 0 0 0 3px oklch(from var(--rythm-color-primary-500) l c h / 0.35);
+  }
+
+  /* Dark theme */
+  [data-theme="dark"] {
+    --rythm-color-surface-default: var(--rythm-color-neutral-950);
+    --rythm-color-surface-subtle:  var(--rythm-color-neutral-900);
+    --rythm-color-surface-raised:  oklch(from var(--rythm-color-neutral-900) l c h / 0.92);
+    --rythm-color-surface-overlay: oklch(from var(--rythm-color-neutral-900) l c h / 0.92);
+
+    --rythm-color-text-primary:   var(--rythm-color-neutral-50);
+    --rythm-color-text-secondary: var(--rythm-color-neutral-400);
+    --rythm-color-text-tertiary:  var(--rythm-color-neutral-600);
+    --rythm-color-text-disabled:  var(--rythm-color-neutral-600);
+
+    --rythm-color-border-default: var(--rythm-color-neutral-800);
+    --rythm-color-border-strong:  var(--rythm-color-neutral-600);
+    --rythm-color-border-focus:   var(--rythm-color-primary-400);
+
+    --rythm-color-brand-primary:       var(--rythm-color-primary-400);
+    --rythm-color-brand-primary-hover: var(--rythm-color-primary-300);
+    --rythm-color-brand-secondary:     var(--rythm-color-secondary-400);
+    --rythm-color-brand-secondary-hover: var(--rythm-color-secondary-300);
+
+    --rythm-focus-ring: 0 0 0 3px oklch(from var(--rythm-color-primary-400) l c h / 0.40);
+  }
+
+  /* System preference fallback */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --rythm-color-surface-default: var(--rythm-color-neutral-950);
+      --rythm-color-surface-subtle:  var(--rythm-color-neutral-900);
+      --rythm-color-surface-raised:  oklch(from var(--rythm-color-neutral-900) l c h / 0.92);
+      --rythm-color-surface-overlay: oklch(from var(--rythm-color-neutral-900) l c h / 0.92);
+
+      --rythm-color-text-primary:   var(--rythm-color-neutral-50);
+      --rythm-color-text-secondary: var(--rythm-color-neutral-400);
+      --rythm-color-text-tertiary:  var(--rythm-color-neutral-600);
+      --rythm-color-text-disabled:  var(--rythm-color-neutral-600);
+
+      --rythm-color-border-default: var(--rythm-color-neutral-800);
+      --rythm-color-border-strong:  var(--rythm-color-neutral-600);
+      --rythm-color-border-focus:   var(--rythm-color-primary-400);
+
+      --rythm-color-brand-primary:       var(--rythm-color-primary-400);
+      --rythm-color-brand-primary-hover: var(--rythm-color-primary-300);
+      --rythm-color-brand-secondary:     var(--rythm-color-secondary-400);
+      --rythm-color-brand-secondary-hover: var(--rythm-color-secondary-300);
+
+      --rythm-focus-ring: 0 0 0 3px oklch(from var(--rythm-color-primary-400) l c h / 0.40);
+    }
+  }
+
+  /* Disable all motion when user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --rythm-duration-fast:   0ms;
+      --rythm-duration-normal: 0ms;
+      --rythm-duration-slow:   0ms;
+    }
+  }
+}
+
+/* ── 5. Component-level tokens ──────────────────────────────── */
+@layer rythm.component {
+  :root {
+    /* Button */
+    --rythm-button-radius:       var(--rythm-radius-md);
+    --rythm-button-font-weight:  var(--rythm-font-weight-semibold);
+    --rythm-button-transition:   background-color var(--rythm-duration-fast) var(--rythm-easing-standard),
+                                 color           var(--rythm-duration-fast) var(--rythm-easing-standard),
+                                 border-color    var(--rythm-duration-fast) var(--rythm-easing-standard),
+                                 box-shadow      var(--rythm-duration-fast) var(--rythm-easing-standard),
+                                 transform       var(--rythm-duration-fast) var(--rythm-easing-standard);
+
+    /* Input */
+    --rythm-input-radius:        var(--rythm-radius-md);
+    --rythm-input-border-width:  1.5px;
+    --rythm-input-bg:            var(--rythm-color-surface-default);
+    --rythm-input-border:        var(--rythm-color-border-default);
+    --rythm-input-border-hover:  var(--rythm-color-border-strong);
+    --rythm-input-border-focus:  var(--rythm-color-border-focus);
+    --rythm-input-border-error:  var(--rythm-color-error);
+
+    /* Badge */
+    --rythm-badge-radius:        var(--rythm-radius-full);
+    --rythm-badge-font-weight:   var(--rythm-font-weight-semibold);
+
+    /* Toggle */
+    --rythm-toggle-track-radius: var(--rythm-radius-full);
+    --rythm-toggle-duration:     var(--rythm-duration-normal);
+
+    /* Avatar */
+    --rythm-avatar-radius:       var(--rythm-radius-full);
+
+    /* Tag */
+    --rythm-tag-radius:          var(--rythm-radius-full);
+  }
+}
