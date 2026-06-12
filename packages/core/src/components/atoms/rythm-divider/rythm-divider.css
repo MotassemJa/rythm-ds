@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+:host([orientation="vertical"]) {
+  width: auto;
+  height: 100%;
+  align-self: stretch;
+}
+
+.divider {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.divider--horizontal {
+  width: 100%;
+  height: 1px;
+  background: var(--rythm-color-border-default);
+}
+
+.divider--horizontal.divider--labeled {
+  background: none;
+  gap: var(--space-s);
+}
+
+.divider--horizontal.divider--labeled::before,
+.divider--horizontal.divider--labeled::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rythm-color-border-default);
+}
+
+.divider--vertical {
+  width: 1px;
+  height: 100%;
+  min-height: 1em;
+  background: var(--rythm-color-border-default);
+}
+
+.divider__label {
+  font-family: var(--rythm-font-sans);
+  font-size: var(--rythm-font-size-xs);
+  color: var(--rythm-color-text-tertiary);
+  white-space: nowrap;
+  padding-inline: var(--space-xs);
+}
