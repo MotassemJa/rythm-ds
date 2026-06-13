@@ -1,17 +1,17 @@
 // Components (auto-registered as custom elements when imported)
-export * from './components/atoms/rythm-button/rythm-button';
-export * from './components/atoms/rythm-icon/rythm-icon';
-export * from './components/atoms/rythm-badge/rythm-badge';
-export * from './components/atoms/rythm-input/rythm-input';
-export * from './components/atoms/rythm-checkbox/rythm-checkbox';
-export * from './components/atoms/rythm-radio/rythm-radio';
-export * from './components/atoms/rythm-radio/rythm-radio-group';
-export * from './components/atoms/rythm-toggle/rythm-toggle';
-export * from './components/atoms/rythm-spinner/rythm-spinner';
-export * from './components/atoms/rythm-avatar/rythm-avatar';
-export * from './components/atoms/rythm-tag/rythm-tag';
-export * from './components/atoms/rythm-divider/rythm-divider';
-export * from './components/atoms/rythm-text/rythm-text';
+export * from './components/atoms/button/button';
+export * from './components/atoms/icon/icon';
+export * from './components/atoms/badge/badge';
+export * from './components/atoms/input/input';
+export * from './components/atoms/checkbox/checkbox';
+export * from './components/atoms/radio/radio';
+export * from './components/atoms/radio/radio-group';
+export * from './components/atoms/toggle/toggle';
+export * from './components/atoms/spinner/spinner';
+export * from './components/atoms/avatar/avatar';
+export * from './components/atoms/tag/tag';
+export * from './components/atoms/divider/divider';
+export * from './components/atoms/text/text';
 
 // Sound system public API
 export { RythmSounds, playSound } from './sounds';
