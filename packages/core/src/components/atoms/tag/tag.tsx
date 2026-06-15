@@ -23,7 +23,7 @@ export class Tag extends Mixin(SoundMixinFactory) {
 
   private onDismissClick(ev: MouseEvent) {
     ev.stopPropagation();
-    this.playIfEnabled('click');
+    this.playIfEnabled('close');
     this.rythmDismiss.emit();
   }
 

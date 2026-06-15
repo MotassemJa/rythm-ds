@@ -26,6 +26,7 @@ export const RythmBadge = /*@__PURE__*/ defineContainer<JSX.RythmBadge>('rythm-b
 
 
 export const RythmButton = /*@__PURE__*/ defineContainer<JSX.RythmButton>('rythm-button', undefined, [
+  'sound',
   'size',
   'disabled',
   'color',
@@ -42,6 +43,7 @@ export const RythmButton = /*@__PURE__*/ defineContainer<JSX.RythmButton>('rythm
 
 
 export const RythmCheckbox = /*@__PURE__*/ defineContainer<JSX.RythmCheckbox>('rythm-checkbox', undefined, [
+  'sound',
   'disabled',
   'checked',
   'indeterminate',
@@ -67,6 +69,7 @@ export const RythmIcon = /*@__PURE__*/ defineContainer<JSX.RythmIcon>('rythm-ico
 
 
 export const RythmInput = /*@__PURE__*/ defineContainer<JSX.RythmInput>('rythm-input', undefined, [
+  'sound',
   'size',
   'disabled',
   'autocomplete',
@@ -91,6 +94,7 @@ export const RythmInput = /*@__PURE__*/ defineContainer<JSX.RythmInput>('rythm-i
 
 
 export const RythmRadio = /*@__PURE__*/ defineContainer<JSX.RythmRadio>('rythm-radio', undefined, [
+  'sound',
   'disabled',
   'checked',
   'label',
@@ -119,6 +123,7 @@ export const RythmSpinner = /*@__PURE__*/ defineContainer<JSX.RythmSpinner>('ryt
 
 
 export const RythmTag = /*@__PURE__*/ defineContainer<JSX.RythmTag>('rythm-tag', undefined, [
+  'sound',
   'color',
   'dismissible',
   'rythmDismiss'
@@ -135,6 +140,7 @@ export const RythmText = /*@__PURE__*/ defineContainer<JSX.RythmText>('rythm-tex
 
 
 export const RythmToggle = /*@__PURE__*/ defineContainer<JSX.RythmToggle>('rythm-toggle', undefined, [
+  'sound',
   'disabled',
   'checked',
   'label',

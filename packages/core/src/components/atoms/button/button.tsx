@@ -47,13 +47,20 @@ export class Button extends Mixin(DisabledMixinFactory, SizeMixinFactory, SoundM
   /** Fired on click when the button is neither disabled nor loading. */
   @Event({ eventName: 'rythmClick' }) rythmClick!: EventEmitter<MouseEvent>;
 
+  private soundForColor() {
+    if (this.color === 'success') return 'success' as const;
+    if (this.color === 'danger')  return 'error'   as const;
+    if (this.color === 'warning') return 'warning' as const;
+    return 'click' as const;
+  }
+
   private onButtonClick(ev: MouseEvent) {
     if (this.disabled || this.loading) {
       ev.preventDefault();
       ev.stopPropagation();
       return;
     }
-    this.playIfEnabled('click');
+    this.playIfEnabled(this.soundForColor());
     this.rythmClick.emit(ev);
   }
 

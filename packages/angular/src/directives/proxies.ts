@@ -52,14 +52,14 @@ export declare interface RythmBadge extends Components.RythmBadge {}
 
 
 @ProxyCmp({
-  inputs: ['color', 'disabled', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'target', 'type', 'variant']
+  inputs: ['color', 'disabled', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'sound', 'target', 'type', 'variant']
 })
 @Component({
   selector: 'rythm-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'disabled', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'target', 'type', 'variant'],
+  inputs: ['color', 'disabled', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'sound', 'target', 'type', 'variant'],
 })
 export class RythmButton {
   protected el: HTMLRythmButtonElement;
@@ -80,14 +80,14 @@ export declare interface RythmButton extends Components.RythmButton {
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'indeterminate', 'label', 'name', 'required', 'value']
+  inputs: ['checked', 'disabled', 'indeterminate', 'label', 'name', 'required', 'sound', 'value']
 })
 @Component({
   selector: 'rythm-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'indeterminate', 'label', 'name', 'required', 'value'],
+  inputs: ['checked', 'disabled', 'indeterminate', 'label', 'name', 'required', 'sound', 'value'],
 })
 export class RythmCheckbox {
   protected el: HTMLRythmCheckboxElement;
@@ -152,14 +152,14 @@ export declare interface RythmIcon extends Components.RythmIcon {}
 
 
 @ProxyCmp({
-  inputs: ['autocomplete', 'clearable', 'disabled', 'error', 'hint', 'iconEnd', 'iconStart', 'label', 'name', 'placeholder', 'readonly', 'required', 'size', 'type', 'value']
+  inputs: ['autocomplete', 'clearable', 'disabled', 'error', 'hint', 'iconEnd', 'iconStart', 'label', 'name', 'placeholder', 'readonly', 'required', 'size', 'sound', 'type', 'value']
 })
 @Component({
   selector: 'rythm-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autocomplete', 'clearable', 'disabled', 'error', 'hint', 'iconEnd', 'iconStart', 'label', 'name', 'placeholder', 'readonly', 'required', 'size', 'type', 'value'],
+  inputs: ['autocomplete', 'clearable', 'disabled', 'error', 'hint', 'iconEnd', 'iconStart', 'label', 'name', 'placeholder', 'readonly', 'required', 'size', 'sound', 'type', 'value'],
 })
 export class RythmInput {
   protected el: HTMLRythmInputElement;
@@ -196,14 +196,14 @@ export declare interface RythmInput extends Components.RythmInput {
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'label', 'name', 'required', 'value']
+  inputs: ['checked', 'disabled', 'label', 'name', 'required', 'sound', 'value']
 })
 @Component({
   selector: 'rythm-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'label', 'name', 'required', 'value'],
+  inputs: ['checked', 'disabled', 'label', 'name', 'required', 'sound', 'value'],
 })
 export class RythmRadio {
   protected el: HTMLRythmRadioElement;
@@ -274,14 +274,14 @@ export declare interface RythmSpinner extends Components.RythmSpinner {}
 
 
 @ProxyCmp({
-  inputs: ['color', 'dismissible']
+  inputs: ['color', 'dismissible', 'sound']
 })
 @Component({
   selector: 'rythm-tag',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'dismissible'],
+  inputs: ['color', 'dismissible', 'sound'],
 })
 export class RythmTag {
   protected el: HTMLRythmTagElement;
@@ -324,14 +324,14 @@ export declare interface RythmText extends Components.RythmText {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'label', 'labelPosition', 'name']
+  inputs: ['checked', 'disabled', 'label', 'labelPosition', 'name', 'sound']
 })
 @Component({
   selector: 'rythm-toggle',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'label', 'labelPosition', 'name'],
+  inputs: ['checked', 'disabled', 'label', 'labelPosition', 'name', 'sound'],
 })
 export class RythmToggle {
   protected el: HTMLRythmToggleElement;
