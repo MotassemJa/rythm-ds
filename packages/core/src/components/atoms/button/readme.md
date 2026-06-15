@@ -21,8 +21,7 @@ Renders as an `<a>` element when `href` is provided.
 | `iconOnly`  | `icon-only`  | Square icon-only button — requires an `aria-label` on the host element.        | `boolean`                                                                     | `false`     |
 | `iconStart` | `icon-start` | Icon name (from rythm-icon registry) rendered before the label.                | `string \| undefined`                                                         | `undefined` |
 | `loading`   | `loading`    | Shows a spinner and prevents interaction while an async action is in progress. | `boolean`                                                                     | `false`     |
-| `noSound`   | `no-sound`   | Suppress the click sound for this instance.                                    | `boolean`                                                                     | `false`     |
-| `size`      | `size`       | Visual size.                                                                   | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                        | `'md'`      |
+| `size`      | `size`       | Visual size.                                                                   | `"2xl" \| "3xl" \| "base" \| "lg" \| "md" \| "sm" \| "xl" \| "xs"`            | `'md'`      |
 | `target`    | `target`     | Anchor `target` attribute; applied only when `href` is set.                    | `string \| undefined`                                                         | `undefined` |
 | `type`      | `type`       | Native button `type` attribute.                                                | `"button" \| "reset" \| "submit"`                                             | `'button'`  |
 | `variant`   | `variant`    | Visual style variant.                                                          | `"ghost" \| "link" \| "outline" \| "solid"`                                   | `'solid'`   |

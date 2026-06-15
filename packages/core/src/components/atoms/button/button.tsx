@@ -1,5 +1,7 @@
-import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
-import { playSound } from '../../../sounds';
+import { Component, Prop, Event, EventEmitter, h, Host, Mixin } from '@stencil/core';
+import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
+import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 export type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'link';
 export type ButtonColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'neutral';
@@ -14,12 +16,9 @@ export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   styleUrl: 'button.css',
   shadow: true,
 })
-export class Button {
+export class Button extends Mixin(DisabledMixinFactory, SizeMixinFactory, SoundMixinFactory) {
   /** Color intent. */
   @Prop() color: ButtonColor = 'primary';
-
-  /** Disables interaction and applies disabled styling. */
-  @Prop() disabled: boolean = false;
 
   /** Renders the button as an anchor element pointing to this URL. */
   @Prop() href?: string;
@@ -35,12 +34,6 @@ export class Button {
 
   /** Shows a spinner and prevents interaction while an async action is in progress. */
   @Prop() loading: boolean = false;
-
-  /** Suppress the click sound for this instance. */
-  @Prop() noSound: boolean = false;
-
-  /** Visual size. */
-  @Prop() size: ButtonSize = 'md';
 
   /** Anchor `target` attribute; applied only when `href` is set. */
   @Prop() target?: string;
@@ -60,7 +53,7 @@ export class Button {
       ev.stopPropagation();
       return;
     }
-    if (!this.noSound) playSound('click');
+    this.playIfEnabled('click');
     this.rythmClick.emit(ev);
   }
 

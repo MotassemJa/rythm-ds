@@ -1,5 +1,6 @@
-import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
-import { playSound } from '../../../sounds';
+import { Component, Prop, Event, EventEmitter, h, Host, Mixin } from '@stencil/core';
+import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
+import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 let toggleIdCounter = 0;
 
@@ -11,14 +12,11 @@ let toggleIdCounter = 0;
   styleUrl: 'toggle.css',
   shadow: true,
 })
-export class Toggle {
+export class Toggle extends Mixin(DisabledMixinFactory, SoundMixinFactory) {
   private inputId = `rythm-toggle-${++toggleIdCounter}`;
 
   /** Whether the toggle is on. */
   @Prop({ mutable: true, reflect: true }) checked: boolean = false;
-
-  /** Disables the toggle. */
-  @Prop() disabled: boolean = false;
 
   /** Visible label text. Falls back to slotted content when omitted. */
   @Prop() label?: string;
@@ -29,15 +27,12 @@ export class Toggle {
   /** Form field name. */
   @Prop() name?: string;
 
-  /** Suppress sound feedback for this instance. */
-  @Prop() noSound: boolean = false;
-
   /** Fired when the toggle state changes. */
   @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<boolean>;
 
   private onToggleChange(ev: Event) {
     this.checked = (ev.target as HTMLInputElement).checked;
-    if (!this.noSound) playSound(this.checked ? 'toggle-on' : 'toggle-off');
+    this.playIfEnabled(this.checked ? 'toggle-on' : 'toggle-off');
     this.rythmChange.emit(this.checked);
   }
 

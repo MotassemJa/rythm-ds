@@ -1,5 +1,6 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Mixin } from '@stencil/core';
 import { ICONS } from '../../../utils/icons';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -13,7 +14,7 @@ export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   styleUrl: 'icon.css',
   shadow: true,
 })
-export class Icon {
+export class Icon extends Mixin(SizeMixinFactory) {
   /**
    * Accessible label announced by screen readers.
    * Omit for decorative icons — the element will be aria-hidden automatically.
@@ -22,9 +23,6 @@ export class Icon {
 
   /** Name of the icon from the Rythm icon registry. */
   @Prop() name!: string;
-
-  /** Visual size. */
-  @Prop() size: IconSize = 'md';
 
   render() {
     const path = ICONS[this.name];

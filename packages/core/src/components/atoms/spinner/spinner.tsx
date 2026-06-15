@@ -1,4 +1,5 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Mixin } from '@stencil/core';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type SpinnerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -11,12 +12,9 @@ export type SpinnerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   styleUrl: 'spinner.css',
   shadow: true,
 })
-export class Spinner {
+export class Spinner extends Mixin(SizeMixinFactory) {
   /** Accessible label announced to screen readers. */
   @Prop() label: string = 'Loading…';
-
-  /** Visual size of the spinner. */
-  @Prop() size: SpinnerSize = 'md';
 
   render() {
     return (

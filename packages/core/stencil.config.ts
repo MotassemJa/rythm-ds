@@ -5,6 +5,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
   namespace: 'rythm',
+  globalScript: 'src/global/app.ts',
   outputTargets: [
     {
       type: 'www',

@@ -1,4 +1,5 @@
-import { Component, Prop, State, h, Host } from '@stencil/core';
+import { Component, Prop, State, h, Host, Mixin } from '@stencil/core';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
@@ -11,7 +12,7 @@ export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   styleUrl: 'avatar.css',
   shadow: true,
 })
-export class Avatar {
+export class Avatar extends Mixin(SizeMixinFactory) {
   /** @internal Set to true when the src image fails to load. */
   @State() imgError = false;
 
@@ -26,9 +27,6 @@ export class Avatar {
 
   /** Shape of the avatar container. */
   @Prop() shape: 'circle' | 'square' = 'circle';
-
-  /** Visual size. */
-  @Prop() size: AvatarSize = 'md';
 
   /** Image URL. */
   @Prop() src?: string;

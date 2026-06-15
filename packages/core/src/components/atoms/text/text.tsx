@@ -1,4 +1,5 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Mixin } from '@stencil/core';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type TextAs =
   | 'p' | 'span' | 'div' | 'label' | 'strong' | 'em'
@@ -18,7 +19,7 @@ export type TextWeight = 'regular' | 'medium' | 'semibold' | 'bold';
   styleUrl: 'text.css',
   shadow: true,
 })
-export class Text {
+export class Text extends Mixin(SizeMixinFactory) {
   /** The HTML element to render. */
   @Prop() as: TextAs = 'span';
 

@@ -1,5 +1,5 @@
-import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
-import { playSound } from '../../../sounds';
+import { Component, Prop, Event, EventEmitter, h, Host, Mixin } from '@stencil/core';
+import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 export type TagColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'neutral';
 
@@ -11,22 +11,19 @@ export type TagColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger
   styleUrl: 'tag.css',
   shadow: true,
 })
-export class Tag {
+export class Tag extends Mixin(SoundMixinFactory) {
   /** Color intent. */
   @Prop() color: TagColor = 'neutral';
 
   /** Shows a dismiss button inside the tag. */
   @Prop() dismissible: boolean = false;
 
-  /** Suppress sound feedback for this instance. */
-  @Prop() noSound: boolean = false;
-
   /** Fired when the dismiss button is clicked. */
   @Event({ eventName: 'rythmDismiss' }) rythmDismiss!: EventEmitter<void>;
 
   private onDismissClick(ev: MouseEvent) {
     ev.stopPropagation();
-    if (!this.noSound) playSound('click');
+    this.playIfEnabled('click');
     this.rythmDismiss.emit();
   }
 

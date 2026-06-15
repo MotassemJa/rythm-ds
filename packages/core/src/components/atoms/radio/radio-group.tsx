@@ -1,4 +1,5 @@
-import { Component, Prop, Event, EventEmitter, Listen, Element, h, Host } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Listen, Element, h, Host, Mixin } from '@stencil/core';
+import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
 
 /**
  * Groups `rythm-radio` elements into a single named fieldset, managing shared
@@ -9,11 +10,8 @@ import { Component, Prop, Event, EventEmitter, Listen, Element, h, Host } from '
   styleUrl: 'radio-group.css',
   shadow: true,
 })
-export class RadioGroup {
+export class RadioGroup extends Mixin(DisabledMixinFactory) {
   @Element() el!: HTMLElement;
-
-  /** Disables all radio buttons in the group. */
-  @Prop() disabled: boolean = false;
 
   /** Accessible `<legend>` text for the fieldset. */
   @Prop() label?: string;

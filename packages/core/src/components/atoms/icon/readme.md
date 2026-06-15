@@ -13,11 +13,11 @@ assistive technology.
 
 ## Properties
 
-| Property            | Attribute | Description                                                                                                              | Type                                   | Default     |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ----------- |
-| `label`             | `label`   | Accessible label announced by screen readers. Omit for decorative icons — the element will be aria-hidden automatically. | `string \| undefined`                  | `undefined` |
-| `name` _(required)_ | `name`    | Name of the icon from the Rythm icon registry.                                                                           | `string`                               | `undefined` |
-| `size`              | `size`    | Visual size.                                                                                                             | `"lg" \| "md" \| "sm" \| "xl" \| "xs"` | `'md'`      |
+| Property            | Attribute | Description                                                                                                              | Type                                                               | Default     |
+| ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ----------- |
+| `label`             | `label`   | Accessible label announced by screen readers. Omit for decorative icons — the element will be aria-hidden automatically. | `string \| undefined`                                              | `undefined` |
+| `name` _(required)_ | `name`    | Name of the icon from the Rythm icon registry.                                                                           | `string`                                                           | `undefined` |
+| `size`              | `size`    | Visual size.                                                                                                             | `"2xl" \| "3xl" \| "base" \| "lg" \| "md" \| "sm" \| "xl" \| "xs"` | `'md'`      |
 
 
 ## Dependencies

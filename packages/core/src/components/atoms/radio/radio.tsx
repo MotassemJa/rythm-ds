@@ -1,5 +1,6 @@
-import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
-import { playSound } from '../../../sounds';
+import { Component, Prop, Event, EventEmitter, h, Host, Mixin } from '@stencil/core';
+import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
+import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 let radioIdCounter = 0;
 
@@ -11,23 +12,17 @@ let radioIdCounter = 0;
   styleUrl: 'radio.css',
   shadow: true,
 })
-export class Radio {
+export class Radio extends Mixin(DisabledMixinFactory, SoundMixinFactory) {
   private inputId = `rythm-radio-${++radioIdCounter}`;
 
   /** Whether this option is currently selected. Managed by `rythm-radio-group`. */
   @Prop({ reflect: true }) checked: boolean = false;
-
-  /** Disables this radio button. */
-  @Prop() disabled: boolean = false;
 
   /** Visible label text. Falls back to slotted content when omitted. */
   @Prop() label?: string;
 
   /** Form group name — managed automatically by `rythm-radio-group`. */
   @Prop() name?: string;
-
-  /** Suppress sound feedback for this instance. */
-  @Prop() noSound: boolean = false;
 
   /** Marks the field as required. */
   @Prop() required: boolean = false;
@@ -39,7 +34,7 @@ export class Radio {
   @Event({ eventName: 'rythmChange' }) rythmChange!: EventEmitter<string | undefined>;
 
   private onRadioChange() {
-    if (!this.noSound) playSound('toggle-on');
+    this.playIfEnabled('toggle-on');
     this.rythmChange.emit(this.value);
   }
 

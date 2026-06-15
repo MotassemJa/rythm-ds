@@ -16,7 +16,10 @@
     },
     "./loader": "./loader/index.js"
   },
-  "files": ["dist", "loader"],
+  "files": [
+    "dist",
+    "loader"
+  ],
   "scripts": {
     "build": "stencil build --docs",
     "dev": "stencil build --watch --serve",
@@ -29,10 +32,11 @@
     "@rythm-ds/tokens": "^0.0.1"
   },
   "devDependencies": {
+    "@stencil/angular-output-target": "^0.10.2",
     "@stencil/core": "^4.20.0",
     "@stencil/react-output-target": "^0.5.3",
+    "@stencil/store": "^2.2.2",
     "@stencil/vue-output-target": "^0.8.8",
-    "@stencil/angular-output-target": "^0.10.2",
     "@types/jest": "^27.5.0",
     "jest": "^27.5.0",
     "jest-environment-jsdom": "^27.5.0",

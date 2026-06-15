@@ -1,5 +1,7 @@
-import { Component, Prop, Event, EventEmitter, State, h, Host } from '@stencil/core';
-import { playSound } from '../../../sounds';
+import { Component, Prop, Event, EventEmitter, State, h, Host, Mixin } from '@stencil/core';
+import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
+import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 let inputIdCounter = 0;
 
@@ -14,7 +16,7 @@ type InputType = 'text' | 'email' | 'password' | 'search' | 'url' | 'number' | '
   styleUrl: 'input.css',
   shadow: true,
 })
-export class Input {
+export class Input extends Mixin(DisabledMixinFactory, SizeMixinFactory, SoundMixinFactory) {
   private inputId = '';
   private hintId = '';
   private errorId = '';
@@ -27,9 +29,6 @@ export class Input {
 
   /** Shows a clear (×) button when the field has a value. */
   @Prop() clearable: boolean = false;
-
-  /** Disables the input. */
-  @Prop() disabled: boolean = false;
 
   /** Error message — sets `aria-invalid` and renders below the input with `role="alert"`. */
   @Prop() error?: string;
@@ -49,9 +48,6 @@ export class Input {
   /** Form field name. */
   @Prop() name?: string;
 
-  /** Suppress sound feedback for this instance. */
-  @Prop() noSound: boolean = false;
-
   /** Placeholder text shown when the field is empty. */
   @Prop() placeholder?: string;
 
@@ -60,9 +56,6 @@ export class Input {
 
   /** Marks the field as required. */
   @Prop() required: boolean = false;
-
-  /** Visual size variant. */
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
   /** Input type. Changing to `password` enables the show/hide toggle. */
   @Prop() type: InputType = 'text';
@@ -110,7 +103,7 @@ export class Input {
 
   private onInputClear() {
     this.value = '';
-    if (!this.noSound) playSound('click');
+    this.playIfEnabled('click');
     this.rythmClear.emit();
   }
 

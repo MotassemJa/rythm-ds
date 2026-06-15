@@ -1,5 +1,6 @@
-import { Component, Prop, Event, EventEmitter, Watch, h, Host } from '@stencil/core';
-import { playSound } from '../../../sounds';
+import { Component, Prop, Event, EventEmitter, Watch, h, Host, Mixin } from '@stencil/core';
+import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
+import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 let checkboxIdCounter = 0;
 
@@ -11,15 +12,12 @@ let checkboxIdCounter = 0;
   styleUrl: 'checkbox.css',
   shadow: true,
 })
-export class Checkbox {
+export class Checkbox extends Mixin(DisabledMixinFactory, SoundMixinFactory) {
   private inputEl?: HTMLInputElement;
   private inputId = `rythm-checkbox-${++checkboxIdCounter}`;
 
   /** Whether the checkbox is checked. */
   @Prop({ mutable: true, reflect: true }) checked: boolean = false;
-
-  /** Disables the checkbox. */
-  @Prop() disabled: boolean = false;
 
   /**
    * Indeterminate state — visually distinct from checked/unchecked.
@@ -38,9 +36,6 @@ export class Checkbox {
   /** Form field name. */
   @Prop() name?: string;
 
-  /** Suppress sound feedback for this instance. */
-  @Prop() noSound: boolean = false;
-
   /** Marks the field as required. */
   @Prop() required: boolean = false;
 
@@ -58,7 +53,7 @@ export class Checkbox {
     const input = ev.target as HTMLInputElement;
     this.checked = input.checked;
     this.indeterminate = false;
-    if (!this.noSound) playSound(this.checked ? 'toggle-on' : 'toggle-off');
+    this.playIfEnabled(this.checked ? 'toggle-on' : 'toggle-off');
     this.rythmChange.emit(this.checked);
   }
 

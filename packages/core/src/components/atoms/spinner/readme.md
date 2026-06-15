@@ -12,10 +12,10 @@ via `role="status"`.
 
 ## Properties
 
-| Property | Attribute | Description                                   | Type                                   | Default      |
-| -------- | --------- | --------------------------------------------- | -------------------------------------- | ------------ |
-| `label`  | `label`   | Accessible label announced to screen readers. | `string`                               | `'Loading…'` |
-| `size`   | `size`    | Visual size of the spinner.                   | `"lg" \| "md" \| "sm" \| "xl" \| "xs"` | `'md'`       |
+| Property | Attribute | Description                                   | Type                                                               | Default      |
+| -------- | --------- | --------------------------------------------- | ------------------------------------------------------------------ | ------------ |
+| `label`  | `label`   | Accessible label announced to screen readers. | `string`                                                           | `'Loading…'` |
+| `size`   | `size`    | Visual size.                                  | `"2xl" \| "3xl" \| "base" \| "lg" \| "md" \| "sm" \| "xl" \| "xs"` | `'md'`       |
 
 
 ## Dependencies

@@ -1,3 +1,5 @@
+import { rythmConfig } from '../store/config.store';
+
 let _ctx: AudioContext | null = null;
 
 function ctx(): AudioContext | null {
@@ -10,7 +12,7 @@ function ctx(): AudioContext | null {
 export function isEnabled(): boolean {
   if (typeof window === 'undefined') return false;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
-  return document.documentElement.getAttribute('data-rythm-sounds') === 'on';
+  return rythmConfig.sound;
 }
 
 interface Note {

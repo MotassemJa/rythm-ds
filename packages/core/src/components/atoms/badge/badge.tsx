@@ -1,4 +1,5 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Mixin } from '@stencil/core';
+import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type BadgeColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'neutral';
 export type BadgeSize = 'sm' | 'md';
@@ -11,15 +12,12 @@ export type BadgeSize = 'sm' | 'md';
   styleUrl: 'badge.css',
   shadow: true,
 })
-export class Badge {
+export class Badge extends Mixin(SizeMixinFactory) {
   /** Color intent. */
   @Prop() color: BadgeColor = 'neutral';
 
   /** Renders as a small dot with no text; hides slot content from assistive tech. */
   @Prop() dot: boolean = false;
-
-  /** Visual size. */
-  @Prop() size: BadgeSize = 'md';
 
   render() {
     return (

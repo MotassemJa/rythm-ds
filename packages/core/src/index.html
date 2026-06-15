@@ -296,8 +296,8 @@
     <span class="topbar__version">v0.0.1 · Atoms</span>
 
     <div class="topbar__controls">
-      <rythm-toggle id="sound-toggle" label="Sound" label-position="start" no-sound></rythm-toggle>
-      <rythm-toggle id="theme-toggle" label="Dark"  label-position="start" no-sound></rythm-toggle>
+      <rythm-toggle id="sound-toggle" label="Sound" label-position="start"></rythm-toggle>
+      <rythm-toggle id="theme-toggle" label="Dark"  label-position="start"></rythm-toggle>
     </div>
   </header>
 
@@ -976,9 +976,9 @@
     document.documentElement.setAttribute('data-theme', e.detail ? 'dark' : 'light');
   });
 
-  // Sound toggle
+  // Sound toggle — RythmSound is exposed on window by the Stencil global script
   document.getElementById('sound-toggle').addEventListener('rythmChange', (e) => {
-    document.documentElement.setAttribute('data-rythm-sounds', e.detail ? 'on' : 'off');
+    e.detail ? RythmSound.enable() : RythmSound.disable();
   });
 
   // Dismissible tags

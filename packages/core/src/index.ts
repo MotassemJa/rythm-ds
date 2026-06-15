@@ -17,6 +17,20 @@ export * from './components/atoms/text/text';
 export { RythmSounds, playSound } from './sounds';
 export type { SoundType } from './sounds';
 
+// Shared types
+export type { SizeStep } from './mixins/size.mixin';
+
+// Global config store — controls shared runtime behaviour
+import { rythmConfig } from './store/config.store';
+export { rythmConfig };
+
+export const RythmSound = {
+  enable(): void   { rythmConfig.sound = true; },
+  disable(): void  { rythmConfig.sound = false; },
+  toggle(): void   { rythmConfig.sound = !rythmConfig.sound; },
+  get enabled(): boolean { return rythmConfig.sound; },
+};
+
 // Theme utility
 export const RythmTheme = {
   set(theme: 'light' | 'dark'): void {

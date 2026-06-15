@@ -16,18 +16,17 @@ toggle, and clearable support.
 | -------------- | -------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ----------- |
 | `autocomplete` | `autocomplete` | Native `autocomplete` attribute.                                                     | `string \| undefined`                                                       | `undefined` |
 | `clearable`    | `clearable`    | Shows a clear (×) button when the field has a value.                                 | `boolean`                                                                   | `false`     |
-| `disabled`     | `disabled`     | Disables the input.                                                                  | `boolean`                                                                   | `false`     |
+| `disabled`     | `disabled`     | Disables interaction and applies disabled styling.                                   | `boolean`                                                                   | `false`     |
 | `error`        | `error`        | Error message — sets `aria-invalid` and renders below the input with `role="alert"`. | `string \| undefined`                                                       | `undefined` |
 | `hint`         | `hint`         | Helper text displayed below the input when there is no error.                        | `string \| undefined`                                                       | `undefined` |
 | `iconEnd`      | `icon-end`     | Lucide icon name displayed at the end of the field.                                  | `string \| undefined`                                                       | `undefined` |
 | `iconStart`    | `icon-start`   | Lucide icon name displayed at the start of the field.                                | `string \| undefined`                                                       | `undefined` |
 | `label`        | `label`        | Visible label text rendered above the input.                                         | `string \| undefined`                                                       | `undefined` |
 | `name`         | `name`         | Form field name.                                                                     | `string \| undefined`                                                       | `undefined` |
-| `noSound`      | `no-sound`     | Suppress sound feedback for this instance.                                           | `boolean`                                                                   | `false`     |
 | `placeholder`  | `placeholder`  | Placeholder text shown when the field is empty.                                      | `string \| undefined`                                                       | `undefined` |
 | `readonly`     | `readonly`     | Makes the input read-only.                                                           | `boolean`                                                                   | `false`     |
 | `required`     | `required`     | Marks the field as required.                                                         | `boolean`                                                                   | `false`     |
-| `size`         | `size`         | Visual size variant.                                                                 | `"lg" \| "md" \| "sm"`                                                      | `'md'`      |
+| `size`         | `size`         | Visual size.                                                                         | `"2xl" \| "3xl" \| "base" \| "lg" \| "md" \| "sm" \| "xl" \| "xs"`          | `'md'`      |
 | `type`         | `type`         | Input type. Changing to `password` enables the show/hide toggle.                     | `"email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` | `'text'`    |
 | `value`        | `value`        | Controlled value of the input.                                                       | `string`                                                                    | `''`        |
 

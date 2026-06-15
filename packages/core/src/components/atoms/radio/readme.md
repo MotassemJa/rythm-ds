@@ -14,7 +14,7 @@ selection state and propagating disabled/required to all children.
 
 | Property            | Attribute     | Description                                                                   | Type                         | Default      |
 | ------------------- | ------------- | ----------------------------------------------------------------------------- | ---------------------------- | ------------ |
-| `disabled`          | `disabled`    | Disables all radio buttons in the group.                                      | `boolean`                    | `false`      |
+| `disabled`          | `disabled`    | Disables interaction and applies disabled styling.                            | `boolean`                    | `false`      |
 | `label`             | `label`       | Accessible `<legend>` text for the fieldset.                                  | `string \| undefined`        | `undefined`  |
 | `name` _(required)_ | `name`        | Shared `name` attribute applied to all `rythm-radio` children.                | `string`                     | `undefined`  |
 | `orientation`       | `orientation` | Layout orientation of the radio options.                                      | `"horizontal" \| "vertical"` | `'vertical'` |

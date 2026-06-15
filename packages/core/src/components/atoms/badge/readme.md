@@ -15,7 +15,7 @@ Compact visual indicator for status labels or numeric counts.
 | -------- | --------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
 | `color`  | `color`   | Color intent.                                                                | `"danger" \| "neutral" \| "primary" \| "secondary" \| "success" \| "warning"` | `'neutral'` |
 | `dot`    | `dot`     | Renders as a small dot with no text; hides slot content from assistive tech. | `boolean`                                                                     | `false`     |
-| `size`   | `size`    | Visual size.                                                                 | `"md" \| "sm"`                                                                | `'md'`      |
+| `size`   | `size`    | Visual size.                                                                 | `"2xl" \| "3xl" \| "base" \| "lg" \| "md" \| "sm" \| "xl" \| "xs"`            | `'md'`      |
 
 
 ----------------------------------------------

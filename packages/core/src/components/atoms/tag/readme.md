@@ -11,11 +11,10 @@ Compact label chip with optional dismiss action.
 
 ## Properties
 
-| Property      | Attribute     | Description                                | Type                                                                          | Default     |
-| ------------- | ------------- | ------------------------------------------ | ----------------------------------------------------------------------------- | ----------- |
-| `color`       | `color`       | Color intent.                              | `"danger" \| "neutral" \| "primary" \| "secondary" \| "success" \| "warning"` | `'neutral'` |
-| `dismissible` | `dismissible` | Shows a dismiss button inside the tag.     | `boolean`                                                                     | `false`     |
-| `noSound`     | `no-sound`    | Suppress sound feedback for this instance. | `boolean`                                                                     | `false`     |
+| Property      | Attribute     | Description                            | Type                                                                          | Default     |
+| ------------- | ------------- | -------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
+| `color`       | `color`       | Color intent.                          | `"danger" \| "neutral" \| "primary" \| "secondary" \| "success" \| "warning"` | `'neutral'` |
+| `dismissible` | `dismissible` | Shows a dismiss button inside the tag. | `boolean`                                                                     | `false`     |
 
 
 ## Events
