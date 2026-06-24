@@ -4,15 +4,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--rythm-badge-radius, var(--rythm-radius-full));
+  border-radius: var(--rythm-badge-radius);
   font-family: var(--rythm-font-sans);
-  font-weight: var(--rythm-badge-font-weight, 600);
+  font-weight: var(--rythm-badge-font-weight);
   line-height: 1;
   white-space: nowrap;
 }
 
-.badge--sm { padding: 2px var(--space-3xs); font-size: var(--rythm-font-size-xs); }
-.badge--md { padding: 3px var(--space-2xs); font-size: var(--rythm-font-size-xs); }
+.badge--sm { padding: 2px var(--rythm-space-3xs); font-size: var(--rythm-font-size-xs); }
+.badge--md { padding: 3px var(--rythm-space-2xs); font-size: var(--rythm-font-size-xs); }
 
 .badge--dot {
   width: 8px;

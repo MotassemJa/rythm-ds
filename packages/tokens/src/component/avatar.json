@@ -1,0 +1,14 @@
+{
+  "avatar": {
+    "circle-radius": {
+      "$value": "{radius.full}",
+      "$type": "borderRadius",
+      "$extensions": { "rythm": { "selector": "rythm-avatar" } }
+    },
+    "square-radius": {
+      "$value": "{radius.md}",
+      "$type": "borderRadius",
+      "$extensions": { "rythm": { "selector": "rythm-avatar" } }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "focus": {
+    "ring": {
+      "$value": "0 0 0 3px oklch(from {color.primary-500} l c h / 0.35)",
+      "$type": "shadow",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "focus.ring-dark" } }
+    },
+    "ring-dark": {
+      "$value": "0 0 0 3px oklch(from {color.primary-400} l c h / 0.40)",
+      "$type": "shadow",
+      "$extensions": { "rythm": { "hidden": true } }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "color": {
+    "border-default": {
+      "$value": "{color.neutral-200}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.border-default-dark" } }
+    },
+    "border-default-dark": {
+      "$value": "{color.neutral-800}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "border-strong": {
+      "$value": "{color.neutral-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.border-strong-dark" } }
+    },
+    "border-strong-dark": {
+      "$value": "{color.neutral-600}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "border-focus": {
+      "$value": "{color.primary-500}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.border-focus-dark" } }
+    },
+    "border-focus-dark": {
+      "$value": "{color.primary-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    }
+  }
+}

@@ -3,9 +3,9 @@
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3xs);
-  padding: var(--space-3xs) var(--space-2xs);
-  border-radius: var(--rythm-tag-radius, var(--rythm-radius-full));
+  gap: var(--rythm-space-3xs);
+  padding: var(--rythm-space-3xs) var(--rythm-space-2xs);
+  border-radius: var(--rythm-tag-radius);
   font-family: var(--rythm-font-sans);
   font-size: var(--rythm-font-size-xs);
   font-weight: var(--rythm-font-weight-medium);

@@ -1,0 +1,39 @@
+{
+  "input": {
+    "radius": {
+      "$value": "{radius.md}",
+      "$type": "borderRadius",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    },
+    "border-width": {
+      "$value": "{border-width}",
+      "$type": "borderWidth",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    },
+    "bg": {
+      "$value": "{color.surface-default}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    },
+    "border": {
+      "$value": "{color.border-default}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    },
+    "border-hover": {
+      "$value": "{color.border-strong}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    },
+    "border-focus": {
+      "$value": "{color.border-focus}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    },
+    "border-error": {
+      "$value": "{color.error}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-input" } }
+    }
+  }
+}

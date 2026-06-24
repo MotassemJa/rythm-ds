@@ -18,7 +18,7 @@
 }
 
 .spinner {
-  animation: rythm-spin 0.8s linear infinite;
+  animation: rythm-spin var(--rythm-spinner-duration) linear infinite;
   color: currentColor;
 }
 

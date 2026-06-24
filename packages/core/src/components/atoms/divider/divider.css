@@ -18,28 +18,28 @@
 
 .divider--horizontal {
   width: 100%;
-  height: 1px;
-  background: var(--rythm-color-border-default);
+  height: var(--rythm-divider-thickness);
+  background: var(--rythm-divider-color);
 }
 
 .divider--horizontal.divider--labeled {
   background: none;
-  gap: var(--space-s);
+  gap: var(--rythm-space-s);
 }
 
 .divider--horizontal.divider--labeled::before,
 .divider--horizontal.divider--labeled::after {
   content: '';
   flex: 1;
-  height: 1px;
-  background: var(--rythm-color-border-default);
+  height: var(--rythm-divider-thickness);
+  background: var(--rythm-divider-color);
 }
 
 .divider--vertical {
-  width: 1px;
+  width: var(--rythm-divider-thickness);
   height: 100%;
   min-height: 1em;
-  background: var(--rythm-color-border-default);
+  background: var(--rythm-divider-color);
 }
 
 .divider__label {
@@ -47,5 +47,5 @@
   font-size: var(--rythm-font-size-xs);
   color: var(--rythm-color-text-tertiary);
   white-space: nowrap;
-  padding-inline: var(--space-xs);
+  padding-inline: var(--rythm-space-xs);
 }

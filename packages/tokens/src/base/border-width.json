@@ -1,0 +1,7 @@
+{
+  "border-width": {
+    "$value": "1.5px",
+    "$type": "borderWidth",
+    "$description": "Shared hairline border width. Unifies the two previously inconsistent hand-set literals (1.5px in input, 1px in divider)."
+  }
+}

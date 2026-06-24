@@ -11,12 +11,12 @@
   font-size: var(--rythm-font-size-sm);
   font-weight: var(--rythm-font-weight-semibold);
   color: var(--rythm-color-text-primary);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--rythm-space-xs);
 }
 
 .radio-group__options {
   display: flex;
-  gap: var(--space-s);
+  gap: var(--rythm-space-s);
 }
 
 .radio-group--vertical .radio-group__options {

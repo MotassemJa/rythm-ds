@@ -1,0 +1,24 @@
+{
+  "space": {
+    "3xs": { "$value": "clamp(0.3125rem, 0.3125rem + 0vi,      0.3125rem)", "$type": "dimension" },
+    "2xs": { "$value": "clamp(0.5625rem, 0.5369rem + 0.1136vi, 0.625rem)", "$type": "dimension" },
+    "xs": { "$value": "clamp(0.875rem,  0.8494rem + 0.1136vi, 0.9375rem)", "$type": "dimension" },
+    "s": { "$value": "clamp(1.125rem,  1.0739rem + 0.2273vi, 1.25rem)", "$type": "dimension" },
+    "m": { "$value": "clamp(1.6875rem, 1.6108rem + 0.3409vi, 1.875rem)", "$type": "dimension" },
+    "l": { "$value": "clamp(2.25rem,   2.1477rem + 0.4545vi, 2.5rem)", "$type": "dimension" },
+    "xl": { "$value": "clamp(3.375rem,  3.2216rem + 0.6818vi, 3.75rem)", "$type": "dimension" },
+    "2xl": { "$value": "clamp(4.5rem,    4.2955rem + 0.9091vi, 5rem)", "$type": "dimension" },
+    "3xl": { "$value": "clamp(6.75rem,   6.4432rem + 1.3636vi, 7.5rem)", "$type": "dimension" },
+
+    "3xs-2xs": { "$value": "clamp(0.3125rem, 0.1847rem + 0.5682vi, 0.625rem)", "$type": "dimension" },
+    "2xs-xs": { "$value": "clamp(0.5625rem, 0.4091rem + 0.6818vi, 0.9375rem)", "$type": "dimension" },
+    "xs-s": { "$value": "clamp(0.875rem,  0.7216rem + 0.6818vi, 1.25rem)", "$type": "dimension" },
+    "s-m": { "$value": "clamp(1.125rem,  0.8182rem + 1.3636vi, 1.875rem)", "$type": "dimension" },
+    "m-l": { "$value": "clamp(1.6875rem, 1.3551rem + 1.4773vi, 2.5rem)", "$type": "dimension" },
+    "l-xl": { "$value": "clamp(2.25rem,   1.6364rem + 2.7273vi, 3.75rem)", "$type": "dimension" },
+    "xl-2xl": { "$value": "clamp(3.375rem,  2.7102rem + 2.9545vi, 5rem)", "$type": "dimension" },
+    "2xl-3xl": { "$value": "clamp(4.5rem,    3.2727rem + 5.4545vi, 7.5rem)", "$type": "dimension" },
+
+    "s-l": { "$value": "clamp(1.125rem,  0.5625rem + 2.5vi,    2.5rem)", "$type": "dimension" }
+  }
+}

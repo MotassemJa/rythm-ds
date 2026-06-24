@@ -1,0 +1,16 @@
+{
+  "font": {
+    "sans": { "$value": "'Inter Variable', system-ui, sans-serif", "$type": "fontFamily" },
+    "mono": { "$value": "'JetBrains Mono Variable', ui-monospace, monospace", "$type": "fontFamily" },
+    "weight-regular": { "$value": "400", "$type": "fontWeight" },
+    "weight-medium": { "$value": "500", "$type": "fontWeight" },
+    "weight-semibold": { "$value": "600", "$type": "fontWeight" },
+    "weight-bold": { "$value": "700", "$type": "fontWeight" }
+  },
+  "leading": {
+    "tight": { "$value": "1.15", "$type": "lineHeight" },
+    "snug": { "$value": "1.35", "$type": "lineHeight" },
+    "normal": { "$value": "1.5", "$type": "lineHeight" },
+    "relaxed": { "$value": "1.65", "$type": "lineHeight" }
+  }
+}

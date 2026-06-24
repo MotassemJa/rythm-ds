@@ -1,0 +1,55 @@
+{
+  "color": {
+    "primary-50": { "$value": "oklch(from {color.primary} 0.97 calc(c * 0.12) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-100": { "$value": "oklch(from {color.primary} 0.93 calc(c * 0.22) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-200": { "$value": "oklch(from {color.primary} 0.86 calc(c * 0.42) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-300": { "$value": "oklch(from {color.primary} 0.77 calc(c * 0.62) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-400": { "$value": "oklch(from {color.primary} 0.71 calc(c * 0.82) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-500": { "$value": "oklch(from {color.primary} l c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-600": { "$value": "oklch(from {color.primary} calc(l - 0.07) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-700": { "$value": "oklch(from {color.primary} calc(l - 0.15) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-800": { "$value": "oklch(from {color.primary} calc(l - 0.25) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-900": { "$value": "oklch(from {color.primary} calc(l - 0.35) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "primary-950": { "$value": "oklch(from {color.primary} calc(l - 0.44) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+
+    "secondary-50": { "$value": "oklch(from {color.secondary} 0.97 calc(c * 0.12) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-100": { "$value": "oklch(from {color.secondary} 0.93 calc(c * 0.22) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-200": { "$value": "oklch(from {color.secondary} 0.86 calc(c * 0.42) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-300": { "$value": "oklch(from {color.secondary} 0.77 calc(c * 0.62) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-400": { "$value": "oklch(from {color.secondary} 0.71 calc(c * 0.82) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-500": { "$value": "oklch(from {color.secondary} l c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-600": { "$value": "oklch(from {color.secondary} calc(l - 0.07) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-700": { "$value": "oklch(from {color.secondary} calc(l - 0.15) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-800": { "$value": "oklch(from {color.secondary} calc(l - 0.25) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-900": { "$value": "oklch(from {color.secondary} calc(l - 0.35) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "secondary-950": { "$value": "oklch(from {color.secondary} calc(l - 0.44) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+
+    "neutral-50": { "$value": "oklch(from {color.neutral-base} 0.97 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-100": { "$value": "oklch(from {color.neutral-base} 0.93 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-200": { "$value": "oklch(from {color.neutral-base} 0.87 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-300": { "$value": "oklch(from {color.neutral-base} 0.77 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-400": { "$value": "oklch(from {color.neutral-base} 0.65 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-500": { "$value": "oklch(from {color.neutral-base} l c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-600": { "$value": "oklch(from {color.neutral-base} 0.40 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-700": { "$value": "oklch(from {color.neutral-base} 0.32 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-800": { "$value": "oklch(from {color.neutral-base} 0.24 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-900": { "$value": "oklch(from {color.neutral-base} 0.17 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "neutral-950": { "$value": "oklch(from {color.neutral-base} 0.12 calc(c * 0.5) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+
+    "success-light": { "$value": "oklch(from {color.success-base} 0.93 calc(c * 0.3) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "success": { "$value": "{color.success-base}", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "success-dark": { "$value": "oklch(from {color.success-base} calc(l - 0.15) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+
+    "warning-light": { "$value": "oklch(from {color.warning-base} 0.95 calc(c * 0.3) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "warning": { "$value": "{color.warning-base}", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "warning-dark": { "$value": "oklch(from {color.warning-base} calc(l - 0.15) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+
+    "error-light": { "$value": "oklch(from {color.error-base} 0.93 calc(c * 0.3) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "error": { "$value": "{color.error-base}", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "error-dark": { "$value": "oklch(from {color.error-base} calc(l - 0.15) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+
+    "info-light": { "$value": "oklch(from {color.info-base} 0.93 calc(c * 0.3) h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "info": { "$value": "{color.info-base}", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } },
+    "info-dark": { "$value": "oklch(from {color.info-base} calc(l - 0.15) c h)", "$type": "color", "$extensions": { "rythm": { "layer": "scales" } } }
+  }
+}

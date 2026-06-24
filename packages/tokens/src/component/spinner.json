@@ -1,0 +1,9 @@
+{
+  "spinner": {
+    "duration": {
+      "$value": "{duration.slow}",
+      "$type": "duration",
+      "$extensions": { "rythm": { "selector": "rythm-spinner" } }
+    }
+  }
+}

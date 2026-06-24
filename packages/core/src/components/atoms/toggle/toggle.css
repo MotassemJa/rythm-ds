@@ -3,7 +3,7 @@
 .toggle-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--rythm-space-xs);
   cursor: pointer;
   user-select: none;
   font-family: var(--rythm-font-sans);
@@ -36,11 +36,11 @@
   align-items: center;
   width: 44px;
   height: 24px;
-  border-radius: var(--rythm-toggle-track-radius, var(--rythm-radius-full));
+  border-radius: var(--rythm-toggle-track-radius);
   background: var(--rythm-color-neutral-300);
   padding: 2px;
   transition:
-    background var(--rythm-toggle-duration, var(--rythm-duration-normal)) var(--rythm-easing-standard);
+    background var(--rythm-toggle-duration) var(--rythm-easing-standard);
 }
 
 /* Checked track */
@@ -56,7 +56,7 @@
   background: white;
   box-shadow: var(--rythm-shadow-sm);
   transition:
-    transform var(--rythm-toggle-duration, var(--rythm-duration-normal)) var(--rythm-easing-spring);
+    transform var(--rythm-toggle-duration) var(--rythm-easing-spring);
 }
 
 .toggle__input:checked ~ .toggle__track .toggle__thumb {

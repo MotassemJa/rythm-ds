@@ -1,0 +1,44 @@
+{
+  "color": {
+    "brand-primary": {
+      "$value": "{color.primary-500}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.brand-primary-dark" } }
+    },
+    "brand-primary-dark": {
+      "$value": "{color.primary-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "brand-primary-hover": {
+      "$value": "{color.primary-600}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.brand-primary-hover-dark" } }
+    },
+    "brand-primary-hover-dark": {
+      "$value": "{color.primary-300}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "brand-secondary": {
+      "$value": "{color.secondary-500}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.brand-secondary-dark" } }
+    },
+    "brand-secondary-dark": {
+      "$value": "{color.secondary-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "brand-secondary-hover": {
+      "$value": "{color.secondary-600}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.brand-secondary-hover-dark" } }
+    },
+    "brand-secondary-hover-dark": {
+      "$value": "{color.secondary-300}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    }
+  }
+}

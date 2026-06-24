@@ -3,7 +3,7 @@
 .checkbox-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--rythm-space-xs);
   cursor: pointer;
   user-select: none;
   font-family: var(--rythm-font-sans);
@@ -36,9 +36,9 @@
   justify-content: center;
   width: 18px;
   height: 18px;
-  border: var(--rythm-input-border-width, 1.5px) solid var(--rythm-color-border-default);
+  border: var(--rythm-checkbox-border-width) solid var(--rythm-color-border-default);
   border-radius: var(--rythm-radius-sm);
-  background: var(--rythm-input-bg);
+  background: var(--rythm-checkbox-bg);
   color: var(--rythm-color-text-on-brand);
   transition:
     background var(--rythm-duration-fast) var(--rythm-easing-standard),

@@ -4,7 +4,6 @@
   "description": "Rythm design tokens — OKLCH colors, fluid typography, fluid spacing",
   "type": "module",
   "exports": {
-    ".": "./dist/tokens.js",
     "./css": "./dist/tokens.css"
   },
   "files": ["dist"],
