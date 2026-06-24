@@ -14,10 +14,10 @@
     "module": "ESNext",
     "lib": ["ES2022", "dom", "dom.iterable"],
     "paths": {
-      "@rythm-ds/core": ["packages/core/src/index.ts"],
-      "@rythm-ds/react": ["packages/react/src/index.ts"],
-      "@rythm-ds/vue": ["packages/vue/src/index.ts"],
-      "@rythm-ds/angular": ["packages/angular/src/public-api.ts"]
+      "@rythm-ds/core": ["./packages/core/src/index.ts"],
+      "@rythm-ds/react": ["./packages/react/src/index.ts"],
+      "@rythm-ds/vue": ["./packages/vue/src/index.ts"],
+      "@rythm-ds/angular": ["./packages/angular/src/public-api.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
