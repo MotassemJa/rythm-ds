@@ -1,0 +1,14 @@
+{
+  "divider": {
+    "color": {
+      "$value": "{color.border-default}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-divider" } }
+    },
+    "thickness": {
+      "$value": "{border-width}",
+      "$type": "borderWidth",
+      "$extensions": { "rythm": { "selector": "rythm-divider" } }
+    }
+  }
+}

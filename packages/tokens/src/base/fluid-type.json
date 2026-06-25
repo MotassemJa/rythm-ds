@@ -1,0 +1,22 @@
+{
+  "step": {
+    "-2": { "$value": "clamp(0.7813rem, 0.7736rem + 0.0341vi, 0.8rem)", "$type": "dimension" },
+    "-1": { "$value": "clamp(0.9375rem, 0.9119rem + 0.1136vi, 1rem)", "$type": "dimension" },
+    "0": { "$value": "clamp(1.125rem,  1.0739rem + 0.2273vi, 1.25rem)", "$type": "dimension" },
+    "1": { "$value": "clamp(1.35rem,   1.2631rem + 0.3864vi, 1.5625rem)", "$type": "dimension" },
+    "2": { "$value": "clamp(1.62rem,   1.4837rem + 0.6057vi, 1.9531rem)", "$type": "dimension" },
+    "3": { "$value": "clamp(1.944rem,  1.7405rem + 0.9044vi, 2.4414rem)", "$type": "dimension" },
+    "4": { "$value": "clamp(2.3328rem, 2.0387rem + 1.3072vi, 3.0518rem)", "$type": "dimension" },
+    "5": { "$value": "clamp(2.7994rem, 2.384rem  + 1.8461vi, 3.8147rem)", "$type": "dimension" }
+  },
+  "font-size": {
+    "xs": { "$value": "{step.-2}", "$type": "dimension" },
+    "sm": { "$value": "{step.-1}", "$type": "dimension" },
+    "base": { "$value": "{step.0}", "$type": "dimension" },
+    "md": { "$value": "{step.1}", "$type": "dimension" },
+    "lg": { "$value": "{step.2}", "$type": "dimension" },
+    "xl": { "$value": "{step.3}", "$type": "dimension" },
+    "2xl": { "$value": "{step.4}", "$type": "dimension" },
+    "3xl": { "$value": "{step.5}", "$type": "dimension" }
+  }
+}

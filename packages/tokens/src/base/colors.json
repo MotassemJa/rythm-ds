@@ -1,0 +1,23 @@
+{
+  "color": {
+    "primary": {
+      "$value": "oklch(0.6829 0.1241 220.2)",
+      "$type": "color",
+      "$description": "Steel-blue brand anchor. All primary tonal stops derive from this via CSS relative colors."
+    },
+    "secondary": {
+      "$value": "oklch(0.6825 0.184 6.73)",
+      "$type": "color",
+      "$description": "Coral-red secondary anchor."
+    },
+    "neutral-base": {
+      "$value": "oklch(from {color.primary} 0.50 0.008 h)",
+      "$type": "color",
+      "$description": "Neutral anchor — hue-matched to primary, chroma stripped."
+    },
+    "success-base": { "$value": "oklch(0.60 0.17 145)", "$type": "color" },
+    "warning-base": { "$value": "oklch(0.72 0.17 72)", "$type": "color" },
+    "error-base": { "$value": "oklch(0.58 0.20 25)", "$type": "color" },
+    "info-base": { "$value": "oklch(0.62 0.14 240)", "$type": "color" }
+  }
+}

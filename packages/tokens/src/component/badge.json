@@ -1,0 +1,14 @@
+{
+  "badge": {
+    "radius": {
+      "$value": "{radius.full}",
+      "$type": "borderRadius",
+      "$extensions": { "rythm": { "selector": "rythm-badge" } }
+    },
+    "font-weight": {
+      "$value": "{font.weight-semibold}",
+      "$type": "fontWeight",
+      "$extensions": { "rythm": { "selector": "rythm-badge" } }
+    }
+  }
+}

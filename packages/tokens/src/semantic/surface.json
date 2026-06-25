@@ -1,0 +1,44 @@
+{
+  "color": {
+    "surface-default": {
+      "$value": "{color.neutral-50}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.surface-default-dark" } }
+    },
+    "surface-default-dark": {
+      "$value": "{color.neutral-950}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "surface-subtle": {
+      "$value": "{color.neutral-100}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.surface-subtle-dark" } }
+    },
+    "surface-subtle-dark": {
+      "$value": "{color.neutral-900}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "surface-raised": {
+      "$value": "oklch(from {color.neutral-50} l c h / 0.92)",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.surface-raised-dark" } }
+    },
+    "surface-raised-dark": {
+      "$value": "oklch(from {color.neutral-900} l c h / 0.92)",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "surface-overlay": {
+      "$value": "oklch(from {color.neutral-50} l c h / 0.92)",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.surface-overlay-dark" } }
+    },
+    "surface-overlay-dark": {
+      "$value": "oklch(from {color.neutral-900} l c h / 0.92)",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    }
+  }
+}

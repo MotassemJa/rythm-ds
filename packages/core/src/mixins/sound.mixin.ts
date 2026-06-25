@@ -9,7 +9,7 @@ export const SoundMixinFactory = (Base: any) => {
     /** Override the sound played by this component instance. */
     @Prop() sound?: SoundType;
 
-    protected playIfEnabled(fallback: SoundType): void {
+    public playIfEnabled(fallback: SoundType): void {
       playSound(this.sound ?? fallback);
     }
   }

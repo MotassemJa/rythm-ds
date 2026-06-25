@@ -7,11 +7,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2xs);
+  gap: var(--rythm-space-2xs);
   border: 1.5px solid transparent;
-  border-radius: var(--rythm-button-radius, var(--rythm-radius-md));
+  border-radius: var(--rythm-button-radius);
   font-family: var(--rythm-font-sans);
-  font-weight: var(--rythm-button-font-weight, 600);
+  font-weight: var(--rythm-button-font-weight);
   line-height: 1;
   cursor: pointer;
   text-decoration: none;
@@ -29,37 +29,37 @@
 
 /* ── Sizes ──────────────────────────────────────────── */
 .btn--xs {
-  padding: var(--space-3xs) var(--space-xs);
+  padding: var(--rythm-space-3xs) var(--rythm-space-xs);
   font-size: var(--rythm-font-size-xs);
   min-height: 28px;
 }
 .btn--sm {
-  padding: var(--space-2xs) var(--space-s);
+  padding: var(--rythm-space-2xs) var(--rythm-space-s);
   font-size: var(--rythm-font-size-sm);
   min-height: 32px;
 }
 .btn--md {
-  padding: var(--space-xs) var(--space-m);
+  padding: var(--rythm-space-xs) var(--rythm-space-m);
   font-size: var(--rythm-font-size-sm);
   min-height: 40px;
 }
 .btn--lg {
-  padding: var(--space-s) var(--space-l);
+  padding: var(--rythm-space-s) var(--rythm-space-l);
   font-size: var(--rythm-font-size-base);
   min-height: 48px;
 }
 .btn--xl {
-  padding: var(--space-m) var(--space-xl);
+  padding: var(--rythm-space-m) var(--rythm-space-xl);
   font-size: var(--rythm-font-size-md);
   min-height: 56px;
 }
 
 /* Icon-only: equal padding */
-.btn--icon-only.btn--xs  { padding: var(--space-3xs); min-width: 28px; }
-.btn--icon-only.btn--sm  { padding: var(--space-2xs); min-width: 32px; }
-.btn--icon-only.btn--md  { padding: var(--space-xs);  min-width: 40px; }
-.btn--icon-only.btn--lg  { padding: var(--space-s);   min-width: 48px; }
-.btn--icon-only.btn--xl  { padding: var(--space-m);   min-width: 56px; }
+.btn--icon-only.btn--xs  { padding: var(--rythm-space-3xs); min-width: 28px; }
+.btn--icon-only.btn--sm  { padding: var(--rythm-space-2xs); min-width: 32px; }
+.btn--icon-only.btn--md  { padding: var(--rythm-space-xs);  min-width: 40px; }
+.btn--icon-only.btn--lg  { padding: var(--rythm-space-s);   min-width: 48px; }
+.btn--icon-only.btn--xl  { padding: var(--rythm-space-m);   min-width: 56px; }
 
 /* ── Solid variant ──────────────────────────────────── */
 .btn--solid.btn--primary {

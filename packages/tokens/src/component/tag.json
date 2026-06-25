@@ -1,0 +1,9 @@
+{
+  "tag": {
+    "radius": {
+      "$value": "{radius.full}",
+      "$type": "borderRadius",
+      "$extensions": { "rythm": { "selector": "rythm-tag" } }
+    }
+  }
+}

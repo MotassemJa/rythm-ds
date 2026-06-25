@@ -1,0 +1,14 @@
+{
+  "checkbox": {
+    "bg": {
+      "$value": "{color.surface-default}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-checkbox" } }
+    },
+    "border-width": {
+      "$value": "{border-width}",
+      "$type": "borderWidth",
+      "$extensions": { "rythm": { "selector": "rythm-checkbox" } }
+    }
+  }
+}

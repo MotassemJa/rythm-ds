@@ -1,0 +1,54 @@
+{
+  "color": {
+    "text-primary": {
+      "$value": "{color.neutral-950}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.text-primary-dark" } }
+    },
+    "text-primary-dark": {
+      "$value": "{color.neutral-50}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "text-secondary": {
+      "$value": "{color.neutral-600}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.text-secondary-dark" } }
+    },
+    "text-secondary-dark": {
+      "$value": "{color.neutral-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "text-tertiary": {
+      "$value": "{color.neutral-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.text-tertiary-dark" } }
+    },
+    "text-tertiary-dark": {
+      "$value": "{color.neutral-600}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "text-disabled": {
+      "$value": "{color.neutral-400}",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "color.text-disabled-dark" } }
+    },
+    "text-disabled-dark": {
+      "$value": "{color.neutral-600}",
+      "$type": "color",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "text-on-brand": {
+      "$value": "oklch(0.98 0.003 220)",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic" } }
+    },
+    "text-on-dark": {
+      "$value": "oklch(0.98 0.003 220)",
+      "$type": "color",
+      "$extensions": { "rythm": { "layer": "semantic" } }
+    }
+  }
+}

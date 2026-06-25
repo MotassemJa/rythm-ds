@@ -10,7 +10,8 @@
     "declarationDir": "dist/types",
     "outDir": "dist",
     "rootDir": "src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {}
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

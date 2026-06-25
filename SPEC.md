@@ -40,10 +40,13 @@ rythm-ds/
 ├── packages/
 │   ├── tokens/                  # Design tokens source + Style Dictionary config
 │   │   ├── src/
-│   │   │   ├── base/            # Primitive tokens (color scales, spacing scale, etc.)
-│   │   │   ├── semantic/        # Semantic tokens (surface, text, border, feedback)
-│   │   │   ├── component/       # Component-level tokens (button-padding, etc.)
-│   │   │   └── themes/          # Light + dark theme overrides
+│   │   │   ├── base/            # Primitive tier: color anchors/scales, fluid type
+│   │   │   │                    #   & space, radius, shadow, motion, border-width
+│   │   │   ├── semantic/        # Semantic tier: surface, text, border, brand, focus.
+│   │   │   │                    #   Dark-mode values live as hidden sibling tokens
+│   │   │   │                    #   (`$extensions.rythm.darkRef`), not a themes/ folder
+│   │   │   └── component/       # Component tier: tag-scoped tokens (one file per
+│   │   │                        #   component), keyed via `$extensions.rythm.selector`
 │   │   ├── style-dictionary.config.ts
 │   │   └── package.json
 │   │
@@ -99,6 +102,8 @@ Primitive → Semantic → Component
 - **Primitive** tokens are raw values with no intent (e.g., `color.violet.500 = #7C3AED`).
 - **Semantic** tokens express intent without specifying UI context (e.g., `color.brand.primary = {color.violet.500}`).
 - **Component** tokens scope semantic tokens to a specific component (e.g., `button.background.rest = {color.brand.primary}`).
+
+Component-tier tokens are scoped to their owning custom-element tag rather than `:root` (e.g. `rythm-button { --rythm-button-radius: ...; }`), via a `$extensions.rythm.selector` field on the source token. This keeps a component's tokens from leaking onto every other custom element on the page. Components in `packages/core` only ever *reference* these tokens (`var(--rythm-button-radius)`) — they never define them; the tokens package remains the single place to edit for rebranding.
 
 ### 4.2 Output Formats
 
@@ -279,6 +284,8 @@ radius.lg     = 12px
 radius.xl     = 16px
 radius.full   = 9999px
 ```
+
+A single shared hairline primitive, `border-width = 1.5px`, unifies the border widths used by input, checkbox, radio, and divider — previously two inconsistent hand-set literals (1.5px and 1px).
 
 ### 4.7 Shadow Scale
 

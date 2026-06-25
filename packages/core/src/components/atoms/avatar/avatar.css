@@ -22,8 +22,8 @@
 .avatar--2xl { width: 80px;  height: 80px;  font-size: var(--rythm-font-size-lg); }
 
 /* Shapes */
-.avatar--circle { border-radius: var(--rythm-radius-full); }
-.avatar--square { border-radius: var(--rythm-radius-md); }
+.avatar--circle { border-radius: var(--rythm-avatar-circle-radius); }
+.avatar--square { border-radius: var(--rythm-avatar-square-radius); }
 
 .avatar__img {
   width: 100%;

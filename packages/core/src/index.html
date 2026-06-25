@@ -16,7 +16,7 @@
 
     body {
       font-family: var(--rythm-font-sans);
-      font-size: var(--step-0);
+      font-size: var(--rythm-step-0);
       line-height: var(--rythm-leading-normal);
       background: var(--rythm-color-surface-subtle);
       color: var(--rythm-color-text-primary);
@@ -37,8 +37,8 @@
       grid-column: 1 / -1;
       display: flex;
       align-items: center;
-      gap: var(--space-m);
-      padding: 0 var(--space-l);
+      gap: var(--rythm-space-m);
+      padding: 0 var(--rythm-space-l);
       height: 3.5rem;
       background: var(--rythm-color-surface-default);
       border-bottom: 1px solid var(--rythm-color-border-default);
@@ -50,9 +50,9 @@
     .topbar__brand {
       display: flex;
       align-items: center;
-      gap: var(--space-xs);
+      gap: var(--rythm-space-xs);
       font-weight: var(--rythm-font-weight-bold);
-      font-size: var(--step-0);
+      font-size: var(--rythm-step-0);
       color: var(--rythm-color-text-primary);
       text-decoration: none;
     }
@@ -74,18 +74,18 @@
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: var(--space-m);
+      gap: var(--rythm-space-m);
     }
 
     .topbar__version {
-      font-size: var(--step--2);
+      font-size: var(--rythm-step--2);
       color: var(--rythm-color-text-tertiary);
       font-variant-numeric: tabular-nums;
     }
 
     /* ── Sidebar nav ─────────────────────────────────────── */
     .sidebar {
-      padding: var(--space-m) var(--space-s);
+      padding: var(--rythm-space-m) var(--rythm-space-s);
       border-right: 1px solid var(--rythm-color-border-default);
       background: var(--rythm-color-surface-default);
       position: sticky;
@@ -95,26 +95,26 @@
     }
 
     .nav-section {
-      margin-bottom: var(--space-m);
+      margin-bottom: var(--rythm-space-m);
     }
 
     .nav-label {
-      font-size: var(--step--2);
+      font-size: var(--rythm-step--2);
       font-weight: var(--rythm-font-weight-semibold);
       color: var(--rythm-color-text-tertiary);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: var(--space-2xs) var(--space-xs);
-      margin-bottom: var(--space-3xs);
+      padding: var(--rythm-space-2xs) var(--rythm-space-xs);
+      margin-bottom: var(--rythm-space-3xs);
     }
 
     .nav-link {
       display: flex;
       align-items: center;
-      gap: var(--space-xs);
-      padding: var(--space-2xs) var(--space-xs);
+      gap: var(--rythm-space-xs);
+      padding: var(--rythm-space-2xs) var(--rythm-space-xs);
       border-radius: var(--rythm-radius-sm);
-      font-size: var(--step--1);
+      font-size: var(--rythm-step--1);
       color: var(--rythm-color-text-secondary);
       text-decoration: none;
       transition: background var(--rythm-duration-fast), color var(--rythm-duration-fast);
@@ -127,32 +127,32 @@
 
     /* ── Main content ────────────────────────────────────── */
     .main {
-      padding: var(--space-l) var(--space-xl);
+      padding: var(--rythm-space-l) var(--rythm-space-xl);
       max-width: 1080px;
     }
 
     /* ── Section ─────────────────────────────────────────── */
     .section {
-      margin-bottom: var(--space-3xl);
-      scroll-margin-top: calc(3.5rem + var(--space-m));
+      margin-bottom: var(--rythm-space-3xl);
+      scroll-margin-top: calc(3.5rem + var(--rythm-space-m));
     }
 
     .section__head {
-      margin-bottom: var(--space-l);
-      padding-bottom: var(--space-s);
+      margin-bottom: var(--rythm-space-l);
+      padding-bottom: var(--rythm-space-s);
       border-bottom: 1px solid var(--rythm-color-border-default);
     }
 
     .section__title {
-      font-size: var(--step-2);
+      font-size: var(--rythm-step-2);
       font-weight: var(--rythm-font-weight-bold);
       line-height: var(--rythm-leading-tight);
       color: var(--rythm-color-text-primary);
     }
 
     .section__sub {
-      margin-top: var(--space-3xs);
-      font-size: var(--step--1);
+      margin-top: var(--rythm-space-3xs);
+      font-size: var(--rythm-step--1);
       color: var(--rythm-color-text-tertiary);
       font-family: var(--rythm-font-mono);
     }
@@ -167,22 +167,22 @@
     }
 
     .card__label {
-      padding: var(--space-xs) var(--space-m);
+      padding: var(--rythm-space-xs) var(--rythm-space-m);
       background: var(--rythm-color-surface-subtle);
       border-bottom: 1px solid var(--rythm-color-border-default);
-      font-size: var(--step--2);
+      font-size: var(--rythm-step--2);
       font-weight: var(--rythm-font-weight-medium);
       color: var(--rythm-color-text-tertiary);
       font-family: var(--rythm-font-mono);
     }
 
     .card__body {
-      padding: var(--space-m);
+      padding: var(--rythm-space-m);
     }
 
     .card-grid {
       display: grid;
-      gap: var(--space-m);
+      gap: var(--rythm-space-m);
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     }
 
@@ -191,15 +191,15 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: var(--space-s);
+      gap: var(--rythm-space-s);
     }
 
-    .row + .row { margin-top: var(--space-s); }
+    .row + .row { margin-top: var(--rythm-space-s); }
 
     .col {
       display: flex;
       flex-direction: column;
-      gap: var(--space-s);
+      gap: var(--rythm-space-s);
     }
 
     /* ── Typography showcase ──────────────────────────────── */
@@ -211,8 +211,8 @@
     .type-row {
       display: flex;
       align-items: baseline;
-      gap: var(--space-m);
-      padding: var(--space-xs) 0;
+      gap: var(--rythm-space-m);
+      padding: var(--rythm-space-xs) 0;
       border-bottom: 1px solid var(--rythm-color-border-default);
     }
 
@@ -220,7 +220,7 @@
 
     .type-meta {
       font-family: var(--rythm-font-mono);
-      font-size: var(--step--2);
+      font-size: var(--rythm-step--2);
       color: var(--rythm-color-text-tertiary);
       min-width: 3.5rem;
       flex-shrink: 0;
@@ -242,15 +242,15 @@
     .icon-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
-      gap: var(--space-2xs);
+      gap: var(--rythm-space-2xs);
     }
 
     .icon-cell {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--space-3xs);
-      padding: var(--space-xs) var(--space-2xs);
+      gap: var(--rythm-space-3xs);
+      padding: var(--rythm-space-xs) var(--rythm-space-2xs);
       border-radius: var(--rythm-radius-sm);
       cursor: default;
       transition: background var(--rythm-duration-fast);
@@ -271,7 +271,7 @@
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: var(--space-s);
+      gap: var(--rythm-space-s);
       max-width: 22rem;
     }
 
@@ -279,7 +279,7 @@
     .divider-inline {
       display: flex;
       align-items: center;
-      gap: var(--space-m);
+      gap: var(--rythm-space-m);
       height: 3rem;
     }
   </style>
@@ -369,7 +369,7 @@
         <p class="section__sub">rythm-text — Utopia fluid type scale, step--2 → step-5</p>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Type scale</div>
         <div class="card__body">
           <div class="type-scale">
@@ -449,7 +449,7 @@
         <p class="section__sub">OKLCH tonal scales via CSS Relative Colors — derived at runtime</p>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Primary (steel-blue)</div>
         <div class="palette">
           <div class="swatch" style="background: var(--rythm-color-primary-50)"  title="50"></div>
@@ -466,7 +466,7 @@
         </div>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Secondary (coral-red)</div>
         <div class="palette">
           <div class="swatch" style="background: var(--rythm-color-secondary-50)"  title="50"></div>
@@ -483,7 +483,7 @@
         </div>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Neutral (hue-tinted from primary)</div>
         <div class="palette">
           <div class="swatch" style="background: var(--rythm-color-neutral-50)"  title="50"></div>
@@ -503,19 +503,19 @@
       <div class="card">
         <div class="card__label">Feedback</div>
         <div class="card__body row">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
             <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-success)"></div>
             <rythm-text size="xs" color="tertiary">success</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
             <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-warning)"></div>
             <rythm-text size="xs" color="tertiary">warning</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
             <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-error)"></div>
             <rythm-text size="xs" color="tertiary">error</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
             <div style="width:3rem;height:3rem;border-radius:var(--rythm-radius-md);background:var(--rythm-color-info)"></div>
             <rythm-text size="xs" color="tertiary">info</rythm-text>
           </div>
@@ -530,7 +530,7 @@
         <p class="section__sub">rythm-icon — 24 Lucide icons · 5 sizes (xs → xl)</p>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">All icons</div>
         <div class="card__body">
           <div class="icon-grid">
@@ -564,24 +564,24 @@
 
       <div class="card">
         <div class="card__label">Sizes</div>
-        <div class="card__body row" style="align-items: flex-end; gap: var(--space-l)">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+        <div class="card__body row" style="align-items: flex-end; gap: var(--rythm-space-l)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-icon name="star" size="xs"></rythm-icon>
             <rythm-text size="xs" color="tertiary">xs</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-icon name="star" size="sm"></rythm-icon>
             <rythm-text size="xs" color="tertiary">sm</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-icon name="star" size="md"></rythm-icon>
             <rythm-text size="xs" color="tertiary">md</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-icon name="star" size="lg"></rythm-icon>
             <rythm-text size="xs" color="tertiary">lg</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-icon name="star" size="xl"></rythm-icon>
             <rythm-text size="xs" color="tertiary">xl</rythm-text>
           </div>
@@ -684,19 +684,19 @@
         <div class="card">
           <div class="card__label">Fallback chain & shapes</div>
           <div class="card__body row" style="align-items: center">
-            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
               <rythm-avatar src="https://i.pravatar.cc/150?img=7" alt="User" size="lg"></rythm-avatar>
               <rythm-text size="xs" color="tertiary">image</rythm-text>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
               <rythm-avatar src="broken.jpg" initials="MJ" alt="Motassem" size="lg"></rythm-avatar>
               <rythm-text size="xs" color="tertiary">initials</rythm-text>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
               <rythm-avatar icon="user" size="lg"></rythm-avatar>
               <rythm-text size="xs" color="tertiary">icon</rythm-text>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2xs)">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
               <rythm-avatar initials="SQ" size="lg" shape="square"></rythm-avatar>
               <rythm-text size="xs" color="tertiary">square</rythm-text>
             </div>
@@ -714,24 +714,24 @@
 
       <div class="card">
         <div class="card__label">All sizes</div>
-        <div class="card__body row" style="align-items: flex-end; gap: var(--space-l)">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+        <div class="card__body row" style="align-items: flex-end; gap: var(--rythm-space-l)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-spinner size="xs"></rythm-spinner>
             <rythm-text size="xs" color="tertiary">xs</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-spinner size="sm"></rythm-spinner>
             <rythm-text size="xs" color="tertiary">sm</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-spinner size="md"></rythm-spinner>
             <rythm-text size="xs" color="tertiary">md</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-spinner size="lg"></rythm-spinner>
             <rythm-text size="xs" color="tertiary">lg</rythm-text>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-xs)">
             <rythm-spinner size="xl"></rythm-spinner>
             <rythm-text size="xs" color="tertiary">xl</rythm-text>
           </div>
@@ -777,7 +777,7 @@
         <p class="section__sub">rythm-button — 4 variants · 6 colors · 5 sizes · icons · loading · link mode</p>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Variants × Primary color</div>
         <div class="card__body row">
           <rythm-button variant="solid"   color="primary">Solid</rythm-button>
@@ -787,7 +787,7 @@
         </div>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Colors × Solid variant</div>
         <div class="card__body row">
           <rythm-button color="primary">Primary</rythm-button>
@@ -799,7 +799,7 @@
         </div>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Colors × Outline variant</div>
         <div class="card__body row">
           <rythm-button variant="outline" color="primary">Primary</rythm-button>
@@ -811,7 +811,7 @@
         </div>
       </div>
 
-      <div class="card" style="margin-bottom: var(--space-m)">
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
         <div class="card__label">Sizes</div>
         <div class="card__body row" style="align-items: center">
           <rythm-button size="xs">XSmall</rythm-button>
@@ -845,7 +845,7 @@
       </div>
 
       <div class="card">
-        <div class="card__body row" style="align-items: flex-start; flex-wrap: wrap; gap: var(--space-l)">
+        <div class="card__body row" style="align-items: flex-start; flex-wrap: wrap; gap: var(--rythm-space-l)">
           <div class="col">
             <rythm-checkbox label="Unchecked (default)"></rythm-checkbox>
             <rythm-checkbox label="Checked" checked></rythm-checkbox>
@@ -865,7 +865,7 @@
       </div>
 
       <div class="card">
-        <div class="card__body row" style="flex-wrap: wrap; gap: var(--space-l); align-items: flex-start">
+        <div class="card__body row" style="flex-wrap: wrap; gap: var(--rythm-space-l); align-items: flex-start">
           <div class="col">
             <rythm-toggle label="Off (default)"></rythm-toggle>
             <rythm-toggle label="On" checked></rythm-toggle>

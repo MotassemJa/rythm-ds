@@ -1,0 +1,14 @@
+{
+  "radio": {
+    "bg": {
+      "$value": "{color.surface-default}",
+      "$type": "color",
+      "$extensions": { "rythm": { "selector": "rythm-radio" } }
+    },
+    "border-width": {
+      "$value": "{border-width}",
+      "$type": "borderWidth",
+      "$extensions": { "rythm": { "selector": "rythm-radio" } }
+    }
+  }
+}

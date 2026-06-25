@@ -1,0 +1,14 @@
+{
+  "toggle": {
+    "track-radius": {
+      "$value": "{radius.full}",
+      "$type": "borderRadius",
+      "$extensions": { "rythm": { "selector": "rythm-toggle" } }
+    },
+    "duration": {
+      "$value": "{duration.normal}",
+      "$type": "duration",
+      "$extensions": { "rythm": { "selector": "rythm-toggle" } }
+    }
+  }
+}
