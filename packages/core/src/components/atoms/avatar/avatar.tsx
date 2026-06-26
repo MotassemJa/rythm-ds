@@ -1,4 +1,5 @@
 import { Component, Prop, State, h, Host, Mixin } from '@stencil/core';
+import { GradientBorderMixinFactory } from '../../../mixins/gradient-border.mixin';
 import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -12,15 +13,12 @@ export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   styleUrl: 'avatar.css',
   shadow: true,
 })
-export class Avatar extends Mixin(SizeMixinFactory) {
+export class Avatar extends Mixin(SizeMixinFactory, GradientBorderMixinFactory) {
   /** @internal Set to true when the src image fails to load. */
   @State() imgError = false;
 
   /** Accessible alt text for the image; also used as the host aria-label. */
   @Prop() alt?: string;
-
-  /** Decorative primary-to-secondary gradient ring around the avatar. */
-  @Prop({ reflect: true }) gradientBorder: boolean = false;
 
   /** Lucide icon name used as the last fallback when no src or initials are provided. */
   @Prop() icon: string = 'user';

@@ -1,4 +1,5 @@
 import { Component, Prop, Event, EventEmitter, h, Host, Mixin } from '@stencil/core';
+import { GradientBorderMixinFactory } from '../../../mixins/gradient-border.mixin';
 import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
 export type TagColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'neutral';
@@ -11,15 +12,12 @@ export type TagColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger
   styleUrl: 'tag.css',
   shadow: true,
 })
-export class Tag extends Mixin(SoundMixinFactory) {
+export class Tag extends Mixin(SoundMixinFactory, GradientBorderMixinFactory) {
   /** Color intent. */
   @Prop() color: TagColor = 'neutral';
 
   /** Shows a dismiss button inside the tag. */
   @Prop() dismissible: boolean = false;
-
-  /** Decorative primary-to-secondary gradient ring around the tag, independent of `color`. */
-  @Prop({ reflect: true }) gradientBorder: boolean = false;
 
   /** Fired when the dismiss button is clicked. */
   @Event({ eventName: 'rythmDismiss' }) rythmDismiss!: EventEmitter<void>;

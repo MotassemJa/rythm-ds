@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Mixin } from '@stencil/core';
+import { GradientBorderMixinFactory } from '../../../mixins/gradient-border.mixin';
 import { SizeMixinFactory } from '../../../mixins/size.mixin';
 
 export type BadgeColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'neutral';
@@ -12,15 +13,12 @@ export type BadgeSize = 'sm' | 'md';
   styleUrl: 'badge.css',
   shadow: true,
 })
-export class Badge extends Mixin(SizeMixinFactory) {
+export class Badge extends Mixin(SizeMixinFactory, GradientBorderMixinFactory) {
   /** Color intent. */
   @Prop() color: BadgeColor = 'neutral';
 
   /** Renders as a small dot with no text; hides slot content from assistive tech. */
   @Prop() dot: boolean = false;
-
-  /** Decorative primary-to-secondary gradient ring around the badge, independent of `color`. */
-  @Prop({ reflect: true }) gradientBorder: boolean = false;
 
   render() {
     return (
