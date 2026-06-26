@@ -19,14 +19,17 @@ export class Avatar extends Mixin(SizeMixinFactory) {
   /** Accessible alt text for the image; also used as the host aria-label. */
   @Prop() alt?: string;
 
+  /** Decorative primary-to-secondary gradient ring around the avatar. */
+  @Prop({ reflect: true }) gradientBorder: boolean = false;
+
   /** Lucide icon name used as the last fallback when no src or initials are provided. */
   @Prop() icon: string = 'user';
 
   /** Up to two initials shown when no image is provided or it fails to load. */
   @Prop() initials?: string;
 
-  /** Shape of the avatar container. */
-  @Prop() shape: 'circle' | 'square' = 'circle';
+  /** Shape of the avatar container. Reflected to a host attribute so the gradient-border ring CSS can match it. */
+  @Prop({ reflect: true }) shape: 'circle' | 'square' = 'circle';
 
   /** Image URL. */
   @Prop() src?: string;

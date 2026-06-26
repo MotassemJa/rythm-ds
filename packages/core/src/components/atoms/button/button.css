@@ -27,6 +27,39 @@
   box-shadow: var(--rythm-focus-ring);
 }
 
+/* ── Gradient border (decorative) ──────────────────── */
+:host([gradient-border]) {
+  position: relative;
+}
+:host([gradient-border]) .btn {
+  transition: var(--rythm-button-transition), background-position var(--rythm-duration-fast) var(--rythm-easing-standard);
+}
+/* ::after (not ::before) so the ring paints over the button's own fill/border
+   instead of being painted first and then covered by them. !important on
+   padding is needed because :host-originated rules cascade below the light
+   DOM's own selectors targeting the host — any consumer page with a `*,
+   *::before, *::after { padding: 0 }` reset (Tailwind/normalize/etc., i.e.
+   most of them) would otherwise zero out the ring width despite higher
+   selector specificity here. */
+:host([gradient-border])::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--rythm-button-radius);
+  padding: var(--rythm-border-width) !important;
+  background: var(--rythm-gradient-border-brand);
+  background-size: 200% 200%;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background-position var(--rythm-duration-fast) var(--rythm-easing-standard);
+}
+:host([gradient-border]:hover)::after {
+  background: var(--rythm-gradient-border-brand-hover);
+  background-size: 200% 200%;
+  background-position: 100% 100%;
+}
+
 /* ── Sizes ──────────────────────────────────────────── */
 .btn--xs {
   padding: var(--rythm-space-3xs) var(--rythm-space-xs);

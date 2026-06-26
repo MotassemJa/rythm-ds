@@ -626,6 +626,14 @@
             <rythm-badge size="md" color="primary">Medium</rythm-badge>
           </div>
         </div>
+        <div class="card">
+          <div class="card__label">Gradient border</div>
+          <div class="card__body row">
+            <rythm-badge color="neutral" gradient-border>Featured</rythm-badge>
+            <rythm-badge color="primary" gradient-border>New</rythm-badge>
+            <rythm-badge color="secondary" gradient-border>Pro</rythm-badge>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -657,6 +665,13 @@
             <rythm-tag color="warning" dismissible>WCAG 2.2</rythm-tag>
             <rythm-tag color="danger" dismissible>v0.0.1</rythm-tag>
             <rythm-tag color="neutral" dismissible>StencilJS</rythm-tag>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Gradient border</div>
+          <div class="card__body row">
+            <rythm-tag color="neutral" gradient-border>Featured</rythm-tag>
+            <rythm-tag color="neutral" gradient-border dismissible>Dismissible</rythm-tag>
           </div>
         </div>
       </div>
@@ -699,6 +714,23 @@
             <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
               <rythm-avatar initials="SQ" size="lg" shape="square"></rythm-avatar>
               <rythm-text size="xs" color="tertiary">square</rythm-text>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__label">Gradient border</div>
+          <div class="card__body row" style="align-items: center">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
+              <rythm-avatar initials="MJ" size="xl" gradient-border></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">circle</rythm-text>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
+              <rythm-avatar initials="SQ" size="xl" shape="square" gradient-border></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">square</rythm-text>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:var(--rythm-space-2xs)">
+              <rythm-avatar src="https://i.pravatar.cc/150?img=7" alt="User" size="xl" gradient-border></rythm-avatar>
+              <rythm-text size="xs" color="tertiary">image</rythm-text>
             </div>
           </div>
         </div>
@@ -819,6 +851,15 @@
           <rythm-button size="md">Medium</rythm-button>
           <rythm-button size="lg">Large</rythm-button>
           <rythm-button size="xl">XLarge</rythm-button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--rythm-space-m)">
+        <div class="card__label">Gradient border (hover to see the shift)</div>
+        <div class="card__body row">
+          <rythm-button variant="solid"   color="primary" gradient-border>Solid</rythm-button>
+          <rythm-button variant="outline" color="primary" gradient-border>Outline</rythm-button>
+          <rythm-button variant="ghost"   color="primary" gradient-border>Ghost</rythm-button>
         </div>
       </div>
 

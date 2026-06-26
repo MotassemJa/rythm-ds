@@ -36,3 +36,30 @@
   line-height: 1;
   letter-spacing: 0.03em;
 }
+
+/* ── Gradient border (decorative) ───────────────────── */
+:host([gradient-border]) {
+  position: relative;
+}
+/* ::after (not ::before) so the ring paints over the avatar's own fill/image
+   instead of being covered by it; also keeps it clear of .avatar's own
+   overflow:hidden, since :host's pseudo-elements aren't its descendants.
+   !important on padding is needed because :host-originated rules cascade
+   below the light DOM's own selectors targeting the host — any consumer
+   page with a `*, *::before, *::after { padding: 0 }` reset
+   (Tailwind/normalize/etc.) would otherwise zero out the ring width despite
+   higher selector specificity here. */
+:host([gradient-border])::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--rythm-avatar-circle-radius);
+  padding: var(--rythm-border-width) !important;
+  background: var(--rythm-gradient-border-brand-ring);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+:host([gradient-border][shape="square"])::after {
+  border-radius: var(--rythm-avatar-square-radius);
+}

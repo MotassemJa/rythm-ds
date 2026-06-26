@@ -19,6 +19,9 @@ export class Badge extends Mixin(SizeMixinFactory) {
   /** Renders as a small dot with no text; hides slot content from assistive tech. */
   @Prop() dot: boolean = false;
 
+  /** Decorative primary-to-secondary gradient ring around the badge, independent of `color`. */
+  @Prop({ reflect: true }) gradientBorder: boolean = false;
+
   render() {
     return (
       <Host>
