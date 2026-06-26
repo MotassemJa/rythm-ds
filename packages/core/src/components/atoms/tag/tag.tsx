@@ -18,6 +18,9 @@ export class Tag extends Mixin(SoundMixinFactory) {
   /** Shows a dismiss button inside the tag. */
   @Prop() dismissible: boolean = false;
 
+  /** Decorative primary-to-secondary gradient ring around the tag, independent of `color`. */
+  @Prop({ reflect: true }) gradientBorder: boolean = false;
+
   /** Fired when the dismiss button is clicked. */
   @Event({ eventName: 'rythmDismiss' }) rythmDismiss!: EventEmitter<void>;
 

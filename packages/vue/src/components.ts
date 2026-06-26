@@ -11,6 +11,7 @@ import type { JSX } from '@rythm-ds/core';
 export const RythmAvatar = /*@__PURE__*/ defineContainer<JSX.RythmAvatar>('rythm-avatar', undefined, [
   'size',
   'alt',
+  'gradientBorder',
   'icon',
   'initials',
   'shape',
@@ -21,7 +22,8 @@ export const RythmAvatar = /*@__PURE__*/ defineContainer<JSX.RythmAvatar>('rythm
 export const RythmBadge = /*@__PURE__*/ defineContainer<JSX.RythmBadge>('rythm-badge', undefined, [
   'size',
   'color',
-  'dot'
+  'dot',
+  'gradientBorder'
 ]);
 
 
@@ -31,6 +33,7 @@ export const RythmButton = /*@__PURE__*/ defineContainer<JSX.RythmButton>('rythm
   'disabled',
   'color',
   'href',
+  'gradientBorder',
   'iconEnd',
   'iconOnly',
   'iconStart',
@@ -126,6 +129,7 @@ export const RythmTag = /*@__PURE__*/ defineContainer<JSX.RythmTag>('rythm-tag',
   'sound',
   'color',
   'dismissible',
+  'gradientBorder',
   'rythmDismiss'
 ]);
 

@@ -23,6 +23,9 @@ export class Button extends Mixin(DisabledMixinFactory, SizeMixinFactory, SoundM
   /** Renders the button as an anchor element pointing to this URL. */
   @Prop() href?: string;
 
+  /** Decorative primary-to-secondary gradient ring around the button, independent of `variant`/`color`. */
+  @Prop({ reflect: true }) gradientBorder: boolean = false;
+
   /** Icon name (from rythm-icon registry) rendered after the label. */
   @Prop() iconEnd?: string;
 

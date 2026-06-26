@@ -8,14 +8,14 @@ import { Components } from '@rythm-ds/core';
 
 
 @ProxyCmp({
-  inputs: ['alt', 'icon', 'initials', 'shape', 'size', 'src']
+  inputs: ['alt', 'gradientBorder', 'icon', 'initials', 'shape', 'size', 'src']
 })
 @Component({
   selector: 'rythm-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alt', 'icon', 'initials', 'shape', 'size', 'src'],
+  inputs: ['alt', 'gradientBorder', 'icon', 'initials', 'shape', 'size', 'src'],
 })
 export class RythmAvatar {
   protected el: HTMLRythmAvatarElement;
@@ -30,14 +30,14 @@ export declare interface RythmAvatar extends Components.RythmAvatar {}
 
 
 @ProxyCmp({
-  inputs: ['color', 'dot', 'size']
+  inputs: ['color', 'dot', 'gradientBorder', 'size']
 })
 @Component({
   selector: 'rythm-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'dot', 'size'],
+  inputs: ['color', 'dot', 'gradientBorder', 'size'],
 })
 export class RythmBadge {
   protected el: HTMLRythmBadgeElement;
@@ -52,14 +52,14 @@ export declare interface RythmBadge extends Components.RythmBadge {}
 
 
 @ProxyCmp({
-  inputs: ['color', 'disabled', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'sound', 'target', 'type', 'variant']
+  inputs: ['color', 'disabled', 'gradientBorder', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'sound', 'target', 'type', 'variant']
 })
 @Component({
   selector: 'rythm-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'disabled', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'sound', 'target', 'type', 'variant'],
+  inputs: ['color', 'disabled', 'gradientBorder', 'href', 'iconEnd', 'iconOnly', 'iconStart', 'loading', 'size', 'sound', 'target', 'type', 'variant'],
 })
 export class RythmButton {
   protected el: HTMLRythmButtonElement;
@@ -274,14 +274,14 @@ export declare interface RythmSpinner extends Components.RythmSpinner {}
 
 
 @ProxyCmp({
-  inputs: ['color', 'dismissible', 'sound']
+  inputs: ['color', 'dismissible', 'gradientBorder', 'sound']
 })
 @Component({
   selector: 'rythm-tag',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'dismissible', 'sound'],
+  inputs: ['color', 'dismissible', 'gradientBorder', 'sound'],
 })
 export class RythmTag {
   protected el: HTMLRythmTagElement;

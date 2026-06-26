@@ -1,0 +1,37 @@
+{
+  "gradient": {
+    "border-brand": {
+      "$value": "linear-gradient(135deg, {color.primary-500}, {color.secondary-500})",
+      "$type": "gradient",
+      "$description": "Decorative gradient ring from primary to secondary. Used via the `gradient-border` prop on Button, Badge, Tag.",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "gradient.border-brand-dark" } }
+    },
+    "border-brand-dark": {
+      "$value": "linear-gradient(135deg, {color.primary-400}, {color.secondary-400})",
+      "$type": "gradient",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "border-brand-hover": {
+      "$value": "linear-gradient(135deg, {color.primary-500}, {color.secondary-500}, {color.primary-500})",
+      "$type": "gradient",
+      "$description": "Same stops as border-brand, with primary repeated at the end so an animated background-position shift has somewhere to land. Used on Button hover.",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "gradient.border-brand-hover-dark" } }
+    },
+    "border-brand-hover-dark": {
+      "$value": "linear-gradient(135deg, {color.primary-400}, {color.secondary-400}, {color.primary-400})",
+      "$type": "gradient",
+      "$extensions": { "rythm": { "hidden": true } }
+    },
+    "border-brand-ring": {
+      "$value": "conic-gradient(from 180deg, {color.primary-500}, {color.secondary-500}, {color.primary-500})",
+      "$type": "gradient",
+      "$description": "Conic sweep variant for circular elements (Avatar ring) — a linear gradient reads as a flat two-tone fade on a circle, conic reads as a ring.",
+      "$extensions": { "rythm": { "layer": "semantic", "darkRef": "gradient.border-brand-ring-dark" } }
+    },
+    "border-brand-ring-dark": {
+      "$value": "conic-gradient(from 180deg, {color.primary-400}, {color.secondary-400}, {color.primary-400})",
+      "$type": "gradient",
+      "$extensions": { "rythm": { "hidden": true } }
+    }
+  }
+}
