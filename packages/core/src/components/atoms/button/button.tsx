@@ -1,5 +1,6 @@
 import { Component, Prop, Event, EventEmitter, h, Host, Mixin } from '@stencil/core';
 import { DisabledMixinFactory } from '../../../mixins/disabled.mixin';
+import { GradientBorderMixinFactory } from '../../../mixins/gradient-border.mixin';
 import { SizeMixinFactory } from '../../../mixins/size.mixin';
 import { SoundMixinFactory } from '../../../mixins/sound.mixin';
 
@@ -16,15 +17,12 @@ export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   styleUrl: 'button.css',
   shadow: true,
 })
-export class Button extends Mixin(DisabledMixinFactory, SizeMixinFactory, SoundMixinFactory) {
+export class Button extends Mixin(DisabledMixinFactory, SizeMixinFactory, SoundMixinFactory, GradientBorderMixinFactory) {
   /** Color intent. */
   @Prop() color: ButtonColor = 'primary';
 
   /** Renders the button as an anchor element pointing to this URL. */
   @Prop() href?: string;
-
-  /** Decorative primary-to-secondary gradient ring around the button, independent of `variant`/`color`. */
-  @Prop({ reflect: true }) gradientBorder: boolean = false;
 
   /** Icon name (from rythm-icon registry) rendered after the label. */
   @Prop() iconEnd?: string;
